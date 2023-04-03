@@ -2,12 +2,34 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from './page.module.css'
 
-const inter = Inter({ subsets: ['latin'] })
+import Inicio from './componentes/Inicio.js'
 
+// const inter = Inter({ subsets: ['latin'] })
+const none = 'none'
+const flex = 'flex'
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
+    <main className='main'> {/* className={styles.main} */}
+      <div className='menu-global'>
+        <div className='menu-global-inicio'>
+          Inicio
+        </div>
+        <div className='menu-global-conocimientos'>
+            Conocimientos
+        </div>
+        <div className='menu-global-Proyectos'>
+             Proyectos
+        </div>
+        <div className='menu-global-contacto'>
+            Contacto
+        </div>
+      </div>
+
+      <div className='componente-inicio'style={{display: flex}}>
+        <Inicio  asd='asd'/>
+      </div>
+      
+      {/* <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
           <code className={styles.code}>src/app/page.tsx</code>
@@ -85,7 +107,7 @@ export default function Home() {
             Instantly deploy your Next.js site to a shareable URL with Vercel.
           </p>
         </a>
-      </div>
+      </div> */}
     </main>
   )
 }
