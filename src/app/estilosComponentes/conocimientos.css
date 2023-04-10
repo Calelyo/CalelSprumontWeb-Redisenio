@@ -1,0 +1,144 @@
+.conocimientos-seccion{
+    display: flex;
+    flex-direction: row;
+}
+
+.conocimientos-mitad-izquierda{
+    background-color: #1F1F1F;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: var(--ancho-mitad-chica);
+    height: 100vh;
+}
+
+.conocimientos-seleccion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto 0;
+    font-weight: 900;
+    font-size: 1.2rem;
+    text-align: center;
+    color: white;
+}
+
+.conocimientos-seleccion div{
+    margin: 1rem 0;
+    padding: 2rem 1rem;
+    width: 60%;
+    cursor: pointer;
+
+    transition: linear 0.1s;
+}
+
+.conocimientos-seleccion-diseño{
+    background-color: #2c2c2c;
+}
+
+.conocimientos-seleccion-programacion{
+    background-color: #2c2c2c;
+}
+
+.conocimientos-seleccion div:hover:not(.conocimientos-seccion-elegida){
+    background-color: #353535;
+}
+
+.conocimientos-seccion-elegida{
+    background-color: #464646;
+    box-shadow: 0px 6px 9px 0px #00000060;
+}
+
+
+.conocimientos-mitad-derecha{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* margin: auto; */
+    width: var(--ancho-mitad-grande);
+    /* max-width: var(--ancho-mitad-grande); */
+
+    color: white;
+}
+
+.conocimientos-contenedor-info.conocimientos-fuera{
+    display: none;
+}
+
+.conocimientos-contenedor-info{
+    display: flex;
+    flex-direction: column;
+    /* width: 65%; */
+}
+
+.conocimientos-contenedor-iconos{
+    margin-top: 8rem;
+    height: 18vh;
+}
+
+.conocimientos-contenedor-iconos{
+    position: relative;
+    /* min-width: 20vw; Ancho máximo del contenedor de iconos */
+    --color-sombra-brillo: #7A987B;
+    box-shadow: var(--sombra-brillo) var(--color-sombra-brillo);
+    display: flex;
+    align-items: center;
+    background-color: #1F1F1F;
+    border: solid 1px #6aa06b;
+
+    overflow: hidden;
+}
+
+.conocimientos-iconos{
+    /* width: calc((100% - 4.4rem) / 5);  Anchura fija para cada icono */
+    padding: 0.2rem 24px;
+    margin: 0 0vw 0 85px;
+    border-radius: 10px;
+    background-color: rgb(221, 221, 221);
+    display: flex;
+
+    transition: linear 0.2s;
+}
+
+.conocimientos-icono-image{
+    max-width: 120px;
+    width: 8vw;
+    height: auto;
+}
+
+.contenedor-flechas{
+    position: relative;
+   /* min-width: 20vw;  Ancho máximo del contenedor de iconos */
+    display: flex;
+    align-items: center;
+}
+.conocimientos-flecha{
+    position: absolute;
+    top: 60%;
+    width: 4rem;
+    height: auto;
+    cursor: pointer;
+    transition: linear 0.1;
+}
+.conocimientos-flecha:hover{
+    filter: brightness(1.2);
+}
+.conocimientos-flecha:active{
+    filter: brightness(1);
+}
+.conocimientos-flecha-izquierda{
+    left: -2rem;
+}
+
+.conocimientos-flecha-derecha{
+    right: -2rem;
+    transform: rotate(180deg);
+}
+
+.conocimientos-flecha-izquierda:hover{
+    transform: scale(1.05);
+}
+.conocimientos-flecha-derecha:hover{
+    transform: rotate(180deg) scale(1.05);
+}

@@ -9,12 +9,22 @@
 .inicio-mitad-izquierda{
     width: var(--ancho-mitad-chica);
     height: 100vh;
+    left: 0;
     background-color: #1F1F1F;
     position: relative;
     display: flex;
     flex-direction: column;
 
     z-index: 2;
+}
+.inicio-mitad-izquierda.fuera{
+    /* TEMPORAL */
+    left: -150vw;
+    transition: linear 0.2s;
+}
+.inicio-mitad-izquierda:not(.fuera){
+    left: 0vw;
+    transition: linear 0.2s;
 }
 
 .inicio-titulo{
@@ -81,7 +91,12 @@
     left: -8px;
     bottom: -8px;
     /* transform: scale(0.2); */
+    transition: 1s linear;
 }
+
+/* .inicio-foto.fuera{
+    bottom: 50rem;
+} */
 
 .inicio-foto-image{
     width: calc(var(--ancho-mitad-chica)*1.5);
@@ -107,6 +122,7 @@
     font-size: 1vw;
     bottom: 19vw;
     left: 16.5vw;
+    transition: linear 0.5s;
 }
 .boton-sobre-mi:hover{
     cursor: pointer;
@@ -136,6 +152,14 @@
     font-size: 1.2rem;
     margin: 0 1rem;
     right: 1.5rem;
+}
+.inicio-menu.fuera{
+    right: -100vw;
+    transition: linear 0.5s;
+}
+.inicio-menu:not(.fuera){
+    right: 1.5rem;
+    transition: linear 0.5s;
 }
 
 .inicio-menu::after{
@@ -215,6 +239,14 @@
     right: calc(var(--margen-horizontal-inicio) + 5vw);
     filter: drop-shadow(0px 0px 12px #000000a6);
 }
+.inicio-boton-cv.fuera{
+    bottom: -10vh;
+    transition: linear 0.5s;
+}
+.inicio-boton-cv:not(.fuera){
+    bottom: calc(var(--margen-vertical-inicio) - 2vw);
+    transition: linear 0.5s;
+}
 .inicio-boton-cv:hover{
     filter: drop-shadow(0px 0px 8px #000000e7);
     transition: linear 0.1s;
@@ -230,6 +262,76 @@
     transition: linear 0.1s;
 }
 
-.asd{
-    background-color: red;
+@media screen and (max-width: 960px) {
+    
+    .inicio-foto{
+        left: -95vw;
+        bottom: -1rem;
+    }
+    
+    .inicio-foto-image{
+        width: calc(var(--ancho-mitad-chica)*6.5);
+        height: auto;
+    }
+
+    .boton-sobre-mi{
+        position: absolute;
+        padding: 0.5vw 1.3vw;
+        font-size: 3.5vw;
+        width: 19vw;
+        bottom: 89vw;
+        left: 26vw;
+    }
+
+    .inicio-mitad-izquierda{
+        width: 60vw;
+        height: 100vh;
+        left: 0;
+    }
+
+    .inicio-titulo-nombre{
+        font-weight: 600;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+    .inicio-titulo-nombre::after{
+        width: 11rem;
+    }
+
+    .oferta div{
+        margin-bottom: 1rem;
+        padding: 0.4rem 0.6rem;
+        white-space: nowrap;
+        color: #FE902A;
+        font-size: 0.8rem;
+    }
+
+    .inicio-titulo-diseño{
+        width: 7rem;
+    }
+
+    .inicio-titulo-desarrollo{
+        width: 10rem;
+    }
+
+    .inicio-menu{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 3rem;
+        font-size: 1rem;
+        text-align: end;
+    }
+    .inicio-menu div{
+        margin: 1.5rem 0;
+    }   
+    .inicio-menu::after{
+        content: '';
+        position: absolute;
+        right: -2.5rem;
+        background-color: #afafaf;
+        height: 4px;
+        bottom: -1.8rem;
+        width: 250%;
+    }
 }

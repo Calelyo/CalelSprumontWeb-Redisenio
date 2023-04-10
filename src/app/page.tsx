@@ -1,33 +1,76 @@
+'use client'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from './page.module.css'
 
 import Inicio from './componentes/Inicio.js'
+import Conocimientos from './componentes/Conocimientos.js'
+import { useState } from 'react'
 
 // const inter = Inter({ subsets: ['latin'] })
 const none = 'none'
 const flex = 'flex'
+
 export default function Home() {
+
+  const [datos, setDatos] = useState('inicio');
+  // const [seccion, setSeccion] = useState({inicio: true, conocimientos: false, proyectos: false, contacto: false})
+
+  // TEMPORAL
+  const [seccion, setSeccion] = useState({inicio: false, conocimientos: true, proyectos: false, contacto: false})
+  // TEMPORAL
+
+  function cambiarSeccion(elegida: any){
+    elegida === 'conocimientos' && setSeccion({inicio: false, conocimientos: true, proyectos: false, contacto: false})
+    elegida === 'proyectos' && setSeccion({inicio: false, conocimientos: false, proyectos: true, contacto: false})
+    elegida === 'contacto' && setSeccion({inicio: false, conocimientos: false, proyectos: false, contacto: true})
+    elegida === 'inicio' && setSeccion({inicio: true, conocimientos: false, proyectos: false, contacto: false})
+  }
+
+  function manejarClick(datos: any) {
+    setDatos(datos);
+    setSeccion(datos);
+  }
+
   return (
     <main className='main'> {/* className={styles.main} */}
-      <div className='menu-global'>
-        <div className='menu-global-inicio'>
+      <div className={`menu-global ${seccion.inicio && `fuera`}`}>
+        <div className='menu-global-inicio' onClick={()=>cambiarSeccion('inicio')}>
           Inicio
         </div>
-        <div className='menu-global-conocimientos'>
-            Conocimientos
-        </div>
-        <div className='menu-global-Proyectos'>
-             Proyectos
-        </div>
-        <div className='menu-global-contacto'>
-            Contacto
+        <div className='menu-global-navegacion'>
+          <div className={`menu-global-seccion menu-global-conocimientos ${seccion.conocimientos&&`palabra-elegida`}`}>
+              <div className={`seccion-elegida conocimientos-elegido ${seccion.conocimientos?`fondo-elegido`:``}`}></div>
+              <div className='seccion-palabra conocimientos-palabra' onClick={()=>cambiarSeccion('conocimientos')}>
+                Conocimientos
+              </div>
+          </div>
+
+          <div className={`menu-global-seccion menu-global-proyectos ${seccion.proyectos&&`palabra-elegida`}`}>
+            <div className={`seccion-elegida proyectos-elegido ${seccion.proyectos?`fondo-elegido`:``}`}></div>
+            <div className='seccion-palabra proyectos-palabra' onClick={()=>cambiarSeccion('proyectos')}>
+                Proyectos
+            </div>
+          </div>
+
+          <div className={`menu-global-seccion menu-global-contacto ${seccion.contacto&&`palabra-elegida`}`}>
+            <div className={`seccion-elegida contacto-elegido ${seccion.contacto?`fondo-elegido`:``}`}></div>
+            <div className='seccion-palabra contacto-palabra' onClick={()=>cambiarSeccion('contacto')}>
+                Contacto
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className='componente-inicio'style={{display: flex}}>
-        <Inicio  asd='asd'/>
+      <div className='secciones'>
+        <div className={`componente-inicio ${!seccion.inicio && `fueraaNOVA`}`} style={{display: none}}>
+          <Inicio onManejarClick={manejarClick} seccion={seccion}/>
+        </div>
+        <div className={`componente-conocimientos`} style={{display: flex}}>
+          <Conocimientos />
+        </div>
       </div>
+
       
       {/* <div className={styles.description}>
         <p>
