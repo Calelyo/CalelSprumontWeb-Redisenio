@@ -3,7 +3,7 @@ import Image from 'next/image'
 import '../estilosComponentes/conocimientos.css'
 import { useState } from 'react';
 import flecha from '../img/png/flecha.png'
-import { transform } from 'typescript';
+import { isJsxOpeningLikeElement, transform } from 'typescript';
 
 const conocimientosDiseñoImg = require.context('../img/png/conocimientos/diseño', true);
 const conocimientosProgramacionImg = require.context('../img/png/conocimientos/programacion', true);
@@ -26,10 +26,12 @@ export default function Conocimientos(){
 
     const [seccionElegida, setSeccionElegida] = useState({ diseño: true, programacion: false })
 
-    const [posicion, setPosicion] = useState(0);
+    const [posicion, setPosicion] = useState(109);
     const numIconos = 3; // número total de iconos
-    const anchoIcono = 110+(24*2)+(60*2); // ancho de cada icono en píxeles
-    const anchoContenedor = numIconos * anchoIcono;
+    const anchoIcono = 100; // ancho de cada icono en píxeles
+    const [tamañosIconos, setTamañosIconos] = useState({margenAncho: 32, paddingAncho: 22, margenAlto: 60, paddingAlto: 5})
+    const anchoContenedor = (anchoIcono + (tamañosIconos.margenAncho*3) + (tamañosIconos.paddingAncho*2)) * numIconos;
+
     const [iconosDiseño, setIconosDiseño] = useState(conocimientosDiseñoImgRutas);
     const [iconosProgramacion, setIconosProgramacion] = useState(conocimientosProgramacionImgRutas);
     
@@ -39,9 +41,10 @@ export default function Conocimientos(){
         sel === 'p' && setSeccionElegida({ diseño: false, programacion: true })
     }
 
-    function moverIzquierda(seccion){
+    function moverDerecha(seccion){
         if(seccion === 'd'){
             const nuevosIconos = [...iconosDiseño.slice(1), iconosDiseño[0]];
+            console.log(nuevosIconos)
             setIconosDiseño(nuevosIconos)
         }
         if(seccion === 'p'){
@@ -50,9 +53,11 @@ export default function Conocimientos(){
         }
         console.log('Mover Izquierda')
     }
-    function moverDerecha(seccion){
+    function moverIzquierda(seccion){
         if(seccion === 'd'){
             const nuevosIconos = [iconosDiseño[iconosDiseño.length - 1], ...iconosDiseño.slice(0, -1)];
+            // const nuevosIconos = [iconosDiseño.slice(-1)[0], ...iconosDiseño.slice(0, -1)];
+            console.log(nuevosIconos)
             setIconosDiseño(nuevosIconos)
         }
         if(seccion === 'p'){
@@ -84,8 +89,8 @@ export default function Conocimientos(){
 
                     <div className='contenedor-flechas'>
                         <div className='conocimientos-contenedor-iconos'>
-                                {iconosDiseño.map(({ ruta, nombre }) => (
-                                    <div key={ nombre } className={`conocimientos-iconos conocimientos-iconos-${nombre}`} style={{transform: `translateX(-${posicion}px)`}}>
+                                {iconosDiseño.map(({ ruta, nombre }, indice) => (                                                      // {transform: `translateX(-${posicion}px)`}
+                                    <div key={ nombre } className={`conocimientos-iconos-diseño conocimientos-iconos conocimientos-iconos-${nombre} ${indice===2&&`en-medio`}`} style={{margin: `${tamañosIconos.margenAlto}px ${tamañosIconos.margenAncho}px`, padding: `${tamañosIconos.paddingAlto}px ${tamañosIconos.paddingAncho}px`}}>
                                         <Image className='conocimientos-icono-image' key={ nombre } src={ ruta } alt={ nombre } loading='lazy'/>
                                     </div>
                                 ))}
@@ -93,10 +98,10 @@ export default function Conocimientos(){
 
                         <div className='conocimientos-flechas conocimientos-flechas-diseño'>
                             <div className='conocimientos-flecha-izquierda-conteneder' onClick={ ()=>moverIzquierda('d') }>
-                                <Image className='conocimientos-flecha conocimientos-flecha-programacion conocimientos-flecha-izquierda' src={ flecha } alt='Flecha Izquierda' loading='lazy' />
+                                <Image className='conocimientos-flecha conocimientos-flecha-diseño conocimientos-flecha-izquierda' src={ flecha } alt='Flecha Izquierda' loading='lazy' />
                             </div>
                             <div className='conocimientos-flecha-derecha-conteneder' onClick={ ()=>moverDerecha('d') }>
-                                <Image className='conocimientos-flecha conocimientos-flecha-programacion conocimientos-flecha-derecha' src={ flecha } alt='Flecha Derecha' loading='lazy' />
+                                <Image className='conocimientos-flecha conocimientos-flecha-diseño conocimientos-flecha-derecha' src={ flecha } alt='Flecha Derecha' loading='lazy' />
                             </div>
                         </div>
                     </div>
@@ -111,9 +116,9 @@ export default function Conocimientos(){
 
                     <div className='contenedor-flechas'>
                         <div className='conocimientos-contenedor-iconos'>
-                                {iconosProgramacion.map(({ ruta, nombre }) => (
-                                    <div key={ nombre } className={`conocimientos-iconos conocimientos-iconos-${nombre}`} style={{transform: `translateX(+${posicion}px)`}}>
-                                        <Image className='conocimientos-icono-image' key={ nombre } src={ ruta } alt={ nombre } loading='lazy' />
+                                {iconosProgramacion.map(({ ruta, nombre }, indice) => (
+                                    <div key={ nombre } className={`conocimientos-iconos-programacion conocimientos-iconos conocimientos-iconos-${nombre} ${indice===3&&`en-medio`}`} style={{transform: `translateX(${posicion}px)`, margin: `${tamañosIconos.margenAlto}px ${tamañosIconos.margenAncho}px`, padding: `${tamañosIconos.paddingAlto}px ${tamañosIconos.paddingAncho}px`}}>
+                                        <Image className='conocimientos-icono-image' key={ nombre } src={ ruta } alt={ nombre } title={ nombre }loading='lazy' />
                                     </div>
                                 ))}
                         </div>

@@ -17,7 +17,6 @@ export default function Inicio(props){
     function enviarConocimientos(){
         props.onManejarClick({inicio: false, conocimientos: true, proyectos: false, contacto: false})
         setSeccion({inicio: false, conocimientos: true, proyectos: false, contacto: false})
-        console.log(seccion.inicio)
     }
     function enviarProyectos(){
         props.onManejarClick({inicio: false, conocimientos: false, proyectos: true, contacto: false})

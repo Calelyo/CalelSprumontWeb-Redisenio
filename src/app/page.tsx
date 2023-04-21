@@ -5,6 +5,9 @@ import styles from './page.module.css'
 
 import Inicio from './componentes/Inicio.js'
 import Conocimientos from './componentes/Conocimientos.js'
+import Proyectos from './componentes/Proyectos.js'
+import Contacto from './componentes/Contacto.js'
+import hamburguesa from './img/png/hamburguesa.png'
 import { useState } from 'react'
 
 // const inter = Inter({ subsets: ['latin'] })
@@ -15,9 +18,11 @@ export default function Home() {
 
   const [datos, setDatos] = useState('inicio');
   // const [seccion, setSeccion] = useState({inicio: true, conocimientos: false, proyectos: false, contacto: false})
+  // const [menuAbierto, setMenuAbierto] = useState(false)
 
   // TEMPORAL
-  const [seccion, setSeccion] = useState({inicio: false, conocimientos: true, proyectos: false, contacto: false})
+  const [seccion, setSeccion] = useState({inicio: true, conocimientos: false, proyectos: false, contacto: false})
+  const [menuAbierto, setMenuAbierto] = useState(false)
   // TEMPORAL
 
   function cambiarSeccion(elegida: any){
@@ -25,6 +30,8 @@ export default function Home() {
     elegida === 'proyectos' && setSeccion({inicio: false, conocimientos: false, proyectos: true, contacto: false})
     elegida === 'contacto' && setSeccion({inicio: false, conocimientos: false, proyectos: false, contacto: true})
     elegida === 'inicio' && setSeccion({inicio: true, conocimientos: false, proyectos: false, contacto: false})
+    
+    setMenuAbierto(false)
   }
 
   function manejarClick(datos: any) {
@@ -38,7 +45,10 @@ export default function Home() {
         <div className='menu-global-inicio' onClick={()=>cambiarSeccion('inicio')}>
           Inicio
         </div>
-        <div className='menu-global-navegacion'>
+        <div className='contenedor-menu-hamburguesa'>
+          <Image className='menu-hamburguesa' src={ hamburguesa } alt='Menu' loading='lazy'/>
+        </div>
+        <div className={`menu-global-navegacion`}>
           <div className={`menu-global-seccion menu-global-conocimientos ${seccion.conocimientos&&`palabra-elegida`}`}>
               <div className={`seccion-elegida conocimientos-elegido ${seccion.conocimientos?`fondo-elegido`:``}`}></div>
               <div className='seccion-palabra conocimientos-palabra' onClick={()=>cambiarSeccion('conocimientos')}>
@@ -63,11 +73,19 @@ export default function Home() {
       </div>
 
       <div className='secciones'>
-        <div className={`componente-inicio ${!seccion.inicio && `fueraaNOVA`}`} style={{display: none}}>
+        <div className={`componente-inicio`} style={{display: seccion.inicio?flex:none}}>
+        {/* ${!seccion.inicio && `fuera`} */}
           <Inicio onManejarClick={manejarClick} seccion={seccion}/>
         </div>
-        <div className={`componente-conocimientos`} style={{display: flex}}>
+        <div className={`componente-conocimientos`} style={{display: seccion.conocimientos?flex:none}}>
+        {/* display: seccion.conocimientos?flex:none */}
           <Conocimientos />
+        </div>
+        <div className={`componente-proyectos`} style={{display: seccion.proyectos?flex:none}}>
+          <Proyectos />
+        </div>
+        <div className={`componente-contacto`} style={{display: seccion.contacto?flex:none}}>
+          <Contacto />
         </div>
       </div>
 

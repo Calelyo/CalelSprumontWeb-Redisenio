@@ -73,39 +73,93 @@
 }
 
 .conocimientos-contenedor-iconos{
-    margin-top: 8rem;
-    height: 18vh;
+    /* margin-top: 8rem; */
+    margin-top: 10vh;
+    height: auto;
 }
 
 .conocimientos-contenedor-iconos{
     position: relative;
-    /* min-width: 20vw; Ancho máximo del contenedor de iconos */
-    --color-sombra-brillo: #7A987B;
-    box-shadow: var(--sombra-brillo) var(--color-sombra-brillo);
+    border: solid;
     display: flex;
     align-items: center;
+    justify-content: center;
+    --color-sombra-brillo: #7A987B;
+    box-shadow: var(--sombra-brillo) var(--color-sombra-brillo);
     background-color: #1F1F1F;
     border: solid 1px #6aa06b;
-
+    
     overflow: hidden;
 }
 
-.conocimientos-iconos{
-    /* width: calc((100% - 4.4rem) / 5);  Anchura fija para cada icono */
-    padding: 0.2rem 24px;
-    margin: 0 0vw 0 85px;
+
+/* .conocimientos-iconos.en-medio{
     border-radius: 10px;
     background-color: rgb(221, 221, 221);
     display: flex;
-
+    
     transition: linear 0.2s;
 }
 
+.conocimientos-iconos-diseño:not(.en-medio){
+    background-color: rgb(104, 104, 104);
+    border-radius: 10px;
+    filter: brightness(0.5);
+    opacity: 0.8;
+    transform: scale(0.8); 
+}
+
+.conocimientos-iconos-programacion:not(.en-medio){
+    background-color: rgb(104, 104, 104);
+    border-radius: 10px;
+    filter: brightness(0.5);
+    opacity: 0.8;
+    transform: scale(0.8) translateX(138px) !important;     
+} */
+
+.conocimientos-iconos{
+    border-radius: 10px;
+    background-color: rgb(104, 104, 104);
+    filter: brightness(0.5);
+    display: flex;
+    opacity: 0.8;
+}
+.conocimientos-iconos-diseño{
+    transform: scale(0.8); 
+}
+.conocimientos-iconos-programacion{
+    transform: scale(0.8) translateX(138px) !important;
+}
+
+.conocimientos-iconos.en-medio{
+    border-radius: 10px;
+    background-color: rgb(221, 221, 221);
+    filter: brightness(1);
+    opacity: 1;
+    display: flex;
+    
+    /* transition: linear 0.2s; */
+}
+
+.conocimientos-iconos-diseño.en-medio{
+    transform: scale(1); 
+    animation: rotacionDiseño linear 0.2s;
+}
+.conocimientos-iconos-programacion.en-medio{
+    transform: scale(1) translateX(109px) !important;
+    animation: rotacionProgramacion linear 0.2s;
+}
+
+@keyframes rotacionDiseño {0%{transform: scale(0.8);background-color: rgb(104, 104, 104);}100%{transform: scale(1);background-color: rgb(221, 221, 221);}}
+@keyframes rotacionProgramacion {0%{transform: scale(0.8) translateX(109px);background-color: rgb(104, 104, 104);}100%{transform: scale(1) translateX(109px);background-color: rgb(221, 221, 221);}}
+
+
 .conocimientos-icono-image{
-    max-width: 120px;
-    width: 8vw;
+    /* max-width: 120px; */
+    width: 110px;
     height: auto;
 }
+
 
 .contenedor-flechas{
     position: relative;
@@ -115,7 +169,7 @@
 }
 .conocimientos-flecha{
     position: absolute;
-    top: 60%;
+    top: 55%;
     width: 4rem;
     height: auto;
     cursor: pointer;

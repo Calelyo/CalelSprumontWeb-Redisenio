@@ -143,8 +143,21 @@ body {
   color: rgb(31, 175, 108);
 }
 
+.contenedor-menu-hamburguesa{
+  display: none;
+}
+
 
 @media screen and (max-width: 960px){
+
+  .contenedor-menu-hamburguesa{
+    display: flex;
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 0;
+  }
   
   .menu-global{
     position: absolute;
@@ -154,6 +167,7 @@ body {
     height: 100vh;
     font-size: 1.1rem;
     background-color: rgba(0, 0, 0, 0.5);
+
     display: flex;
     flex-direction: column;
     transition: linear 0.2s;
@@ -163,7 +177,8 @@ body {
   }
   .menu-global.fuera{
     /* TEMPORTAL */
-    left: -200rem;
+    /* left: -200rem; */
+    display: none;
   }
 
   .menu-global div{
