@@ -196,3 +196,109 @@
 .conocimientos-flecha-derecha:hover{
     transform: rotate(180deg) scale(1.05);
 }
+
+.conocimientos-titulo-responsive{
+    display: none;
+}
+
+
+@media screen and (max-width: 960px){
+
+    .conocimientos-seccion{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .conocimientos-titulo-responsive{
+        height: 2.5rem;
+        display: flex;
+        position: absolute;
+        top: 4rem;
+        left: 2rem;
+        margin: 0 0 0 1rem;
+        color: white;
+        font-size: 2rem;
+    }
+    .conocimientos-titulo-responsive::before{
+        content: '';
+        position: absolute;
+        bottom: -2rem;
+        /* left: -3rem; */
+        right: 0;
+        height: 5px;
+        width: 200%;
+        background-color: rgb(202, 202, 202);
+    }
+
+    .conocimientos-mitad-izquierda{
+        background-color: #1F1F1F;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        height: 40vh;
+    }
+
+    .conocimientos-mitad-derecha{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 60vh;
+    
+        color: white;
+    }
+
+    .conocimientos-seleccion{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 4rem;
+        font-size: 1rem;
+    }
+    
+    .conocimientos-seleccion div{
+        margin: 0rem 1rem;
+        padding: 1rem 0rem;
+        width: 40vw;
+    }
+    
+
+
+    .conocimientos-contenedor-info{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .conocimientos-texto-diseño{
+        position: relative;
+        top: 16vh;
+        left: 7vw;    
+        width: 70%;
+    }
+    .conocimientos-texto-programacion{
+        position: relative;
+        top: 16vh;
+        left: 7vw;    
+        width: 70%;
+    }
+    
+    .conocimientos-contenedor-iconos{
+        margin-top: 35vh;
+    }
+
+    .conocimientos-flecha{
+        top: 79%;
+        width: 3rem;
+        height: auto;
+    }
+    .conocimientos-flecha-izquierda{
+        left: 1rem;
+    }
+    .conocimientos-flecha-derecha{
+        right: 1rem;
+    }
+}

@@ -145,6 +145,7 @@ body {
 
 .contenedor-menu-hamburguesa{
   display: none;
+  background-color: white;
 }
 
 
@@ -152,12 +153,30 @@ body {
 
   .contenedor-menu-hamburguesa{
     display: flex;
-    background-color: red;
-    width: 20px;
-    height: 20px;
+    /* background-color: #76DD7A; */
+    background-color: white;
+    /* width: 3rem;
+    height: 3rem; */
     position: absolute;
     right: 0;
+    top: 4rem;
   }
+  .contenedor-menu-hamburguesa.fuera{
+    display: none;
+  }
+
+  .contenedor-menu-hamburguesa.color-hambuerguesa-conocimientos{background-color: #76DD7A;}
+  .contenedor-menu-hamburguesa.color-hambuerguesa-proyectos{background-color: #E3C495}
+  .contenedor-menu-hamburguesa.color-hambuerguesa-contacto{background-color: #7882D4}
+
+  .menu-hamburguesa{
+    display: flex;
+    width: 2.5rem;
+    height: auto;
+    margin: 1rem;
+    margin-right: 3rem;
+  }
+
   
   .menu-global{
     position: absolute;
@@ -175,7 +194,7 @@ body {
 
     z-index: 1;
   }
-  .menu-global.fuera{
+  .menu-global.fuera-responsive{
     /* TEMPORTAL */
     /* left: -200rem; */
     display: none;

@@ -29,16 +29,36 @@ export default function Conocimientos(){
     const [posicion, setPosicion] = useState(109);
     const numIconos = 3; // número total de iconos
     const anchoIcono = 100; // ancho de cada icono en píxeles
-    const [tamañosIconos, setTamañosIconos] = useState({margenAncho: 32, paddingAncho: 22, margenAlto: 60, paddingAlto: 5})
-    const anchoContenedor = (anchoIcono + (tamañosIconos.margenAncho*3) + (tamañosIconos.paddingAncho*2)) * numIconos;
+    // const [tamañosIconos, setTamañosIconos] = useState({margenAncho: 32, paddingAncho: 22, margenAlto: 60, paddingAlto: 5})
+    const [tamañosIconos, setTamañosIconos] = useState(tamañosIconosResponsive())
+    // const anchoContenedor = (anchoIcono + (tamañosIconos.margenAncho*3) + (tamañosIconos.paddingAncho*2)) * numIconos;
+    const anchoContenedor = anchoContenedorConocimientos();
 
     const [iconosDiseño, setIconosDiseño] = useState(conocimientosDiseñoImgRutas);
     const [iconosProgramacion, setIconosProgramacion] = useState(conocimientosProgramacionImgRutas);
     
+    function anchoContenedorConocimientos(){
+        if(screen.width <= 960){
+            return screen.width
+        }
+        else{
+            return (anchoIcono + (tamañosIconos.margenAncho*3) + (tamañosIconos.paddingAncho*2)) * numIconos
+        }
+    }
+    function tamañosIconosResponsive(){
+        if(window.screen.width <= 960){
+            return {margenAncho: 8, paddingAncho: 26, margenAlto: 22, paddingAlto: 2}
+        }
+        else{
+            return {margenAncho: 32, paddingAncho: 22, margenAlto: 60, paddingAlto: 5}
+        }
+    }
 
     function cambiarSeleccion(sel){
         sel === 'd' && setSeccionElegida({ diseño: true, programacion: false })
         sel === 'p' && setSeccionElegida({ diseño: false, programacion: true })
+
+        console.log(window.screen.width)
     }
 
     function moverDerecha(seccion){
@@ -69,6 +89,11 @@ export default function Conocimientos(){
 
     return(
         <section className='conocimientos-seccion'>
+
+            <div className='conocimientos-titulo-responsive'>
+                Conocimientos
+            </div>
+
             <div className='conocimientos-mitad-izquierda'>
                 <div className='conocimientos-seleccion'>
                     <div className={`conocimientos-seleccion-diseño ${seccionElegida.diseño && `conocimientos-seccion-elegida`}`} onClick={ ()=>cambiarSeleccion('d') }>

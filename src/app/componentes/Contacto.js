@@ -7,6 +7,11 @@ import linkedin from '../img/png/contacto/linkedinblanco.png'
 export default function Contacto(){
     return(
         <section className='contacto-seccion'>
+
+            <div className='contacto-titulo-responsive'>
+                Contacto
+            </div>
+
             <div className='contacto-parte-negra'>
                 <div className='contacto-contenedor-iconos'>
                     <div className='contacto-iconos-individuales contacto-contenedor-github'>

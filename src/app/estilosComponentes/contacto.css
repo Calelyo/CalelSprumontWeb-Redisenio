@@ -59,3 +59,71 @@
     /* filter: sepia(0.5) hue-rotate(270deg); */
     transform: scale(1.05);
 }
+
+.contacto-titulo-responsive{
+    display: none;
+}
+
+@media screen and (max-width: 960px) {
+
+    .contacto-seccion{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        /* justify-content: flex-start; */
+    }
+    
+    .contacto-parte-negra{
+        width: 20.8rem;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        top: 8.5rem;
+        /* left: -13rem; */
+        background-color: #1F1F1F;
+
+        border: solid 1px #7882D4;
+        border-left: 0;
+        /* border-right: 1px; */
+        border-bottom: 0;
+        border-top: 0;
+        box-shadow: 2px 5px 7px 0px #7882D4;
+        
+        
+    }
+
+    .contacto-contenedor-iconos{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: -3vh;
+    }
+
+    .contacto-iconos-individuales{
+        display: flex;
+        margin: 4rem 0rem;
+    }
+
+    .contacto-titulo-responsive{
+        height: 2.5rem;
+        display: flex;
+        justify-content: flex-start;
+        position: absolute;
+        top: 4rem;
+        left: 2rem;
+        margin: 0 0 0 4rem;
+        color: white;
+        font-size: 2rem;
+    }
+    .contacto-titulo-responsive::before{
+        content: '';
+        position: absolute;
+        bottom: -2rem;
+        /* left: -3rem; */
+        right: -6rem;
+        height: 5px;
+        width: 300vw;
+        background-color: rgb(202, 202, 202);
+    }
+}

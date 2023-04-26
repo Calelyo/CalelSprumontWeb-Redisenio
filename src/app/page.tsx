@@ -39,14 +39,33 @@ export default function Home() {
     setSeccion(datos);
   }
 
+  function abrirMenu(){
+    setMenuAbierto(true)
+    console.log('Arbido')
+  }
+
+  function colorHambuerguesa(){
+    if(seccion.conocimientos){
+      return 'color-hambuerguesa-conocimientos';
+    }
+    if(seccion.proyectos){
+      return 'color-hambuerguesa-proyectos';
+    }
+    if(seccion.contacto){
+      return 'color-hambuerguesa-contacto';
+    }
+    else{
+      return ''
+    }
+  }
+
   return (
     <main className='main'> {/* className={styles.main} */}
-      <div className={`menu-global ${seccion.inicio && `fuera`}`}>
+
+      <div className={`menu-global ${seccion.inicio && `fuera`} ${(!menuAbierto||seccion.inicio) && `fuera-responsive`}`}>  
+      {/* ${!menuAbierto && `fueraResponsive`} */}
         <div className='menu-global-inicio' onClick={()=>cambiarSeccion('inicio')}>
           Inicio
-        </div>
-        <div className='contenedor-menu-hamburguesa'>
-          <Image className='menu-hamburguesa' src={ hamburguesa } alt='Menu' loading='lazy'/>
         </div>
         <div className={`menu-global-navegacion`}>
           <div className={`menu-global-seccion menu-global-conocimientos ${seccion.conocimientos&&`palabra-elegida`}`}>
@@ -88,6 +107,11 @@ export default function Home() {
           <Contacto />
         </div>
       </div>
+
+      
+    <div className={`contenedor-menu-hamburguesa ${(seccion.inicio||menuAbierto) && `fuera`} ${colorHambuerguesa()}`} onClick={()=>abrirMenu()}>
+      <Image className='menu-hamburguesa' src={ hamburguesa } alt='Menu' loading='lazy'/>
+    </div>
 
       
       {/* <div className={styles.description}>

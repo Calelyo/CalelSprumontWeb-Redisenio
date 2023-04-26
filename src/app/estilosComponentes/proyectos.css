@@ -39,9 +39,12 @@
 
 .proyectos-contenedor-proyectos{
     position: relative;
-    width: 35vw;
-    height: 80vh;
-    margin-top: 8vh;
+    /* width: 35vw;
+    height: 80vh; */
+    width: calc(30vw + 5vh);
+    height: calc(90vh - 10vw);
+    /* margin-top: 5vh; */
+    margin-top: calc(6vh + 1vw);
     display: flex;
     justify-content: center;
     --color-sombra-brillo: #E3C495;
@@ -60,7 +63,7 @@
     height: 80%;
     background-color: rgb(219, 219, 219);
     border-radius: 10px;
-    top: 1rem;
+    top: 2vh;
     margin: 2rem;
 }
 
@@ -68,7 +71,9 @@
     display: flex;
     flex-direction: row;
     position: absolute;
-    bottom: 3.5vh;
+    /* bottom: 3.5vh; */
+    /* bottom: calc(7vh - 3vw); */
+    bottom: 1.5vh;
 }
 
 .proyectos-puntos{
@@ -83,4 +88,135 @@
 .proyectos-punto-uno{
     /* TEMPORAL  */
     background-color: #D9D9D9;
+}
+
+.contenedor-flechas{
+    position: relative;
+   /* min-width: 20vw;  Ancho máximo del contenedor de iconos */
+    display: flex;
+    align-items: center;
+}
+
+.proyectos-flecha{
+    position: absolute;
+    top: 50%;
+    width: 4rem;
+    height: auto;
+    cursor: pointer;
+    transition: linear 0.1;
+}
+
+.proyectos-flecha:hover{
+    filter: brightness(1.2);
+}
+.proyectos-flecha:active{
+    filter: brightness(1);
+}
+.proyectos-flecha-izquierda{
+    left: -2rem;
+}
+
+.proyectos-flecha-derecha{
+    right: -2rem;
+    transform: rotate(180deg);
+}
+
+.proyectos-flecha-izquierda:hover{
+    transform: scale(1.05);
+}
+.proyectos-flecha-derecha:hover{
+    transform: rotate(180deg) scale(1.05);
+}
+
+
+.proyectos-titulo-responsive{
+    display: none;
+}
+
+@media screen and (max-width: 960px) {
+    .proyectos-seccion{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    
+    .proyectos-mitad-derecha{
+        width: 100vw;
+        height: 60vh;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        top: 8.5rem;
+        background-color: #1F1F1F;
+    }
+
+    .proyectos-mitad-izquierda{
+        width: 100vw;
+        height: 40vh;
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .proyectos-contenedor-proyectos{
+        position: relative;
+        width: 80vw;
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        margin-top: 0;
+    }
+    
+    .proyectos-proyectos-individuales{
+        position: absolute;
+        width: 70%;
+        height: 75%;
+        background-color: rgb(219, 219, 219);
+        border-radius: 10px;
+        top: 4vh;
+        margin: 0rem;
+    }
+    
+    .proyectos-info-actual{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem;
+        top: 18vh;
+    }
+
+    .proyectos-titulo-actual{
+        font-size: 1rem;
+        margin-bottom: 0;
+        width: 100%;
+    }
+
+    .proyectos-descripcion-actual{
+        font-size: 0.9rem;
+        width: 130%;
+    }
+
+
+    .proyectos-titulo-responsive{
+        height: 2.5rem;
+        display: flex;
+        position: absolute;
+        top: 4rem;
+        left: 2rem;
+        margin: 0 0 0 1rem;
+        color: white;
+        font-size: 2rem;
+    }
+    .proyectos-titulo-responsive::before{
+        content: '';
+        position: absolute;
+        bottom: -2rem;
+        /* left: -3rem; */
+        right: 0;
+        height: 5px;
+        width: 200%;
+        background-color: rgb(202, 202, 202);
+    }
+
 }
