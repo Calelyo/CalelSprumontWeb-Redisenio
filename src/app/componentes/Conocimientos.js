@@ -142,7 +142,7 @@ export default function Conocimientos(){
                     <div className='contenedor-flechas'>
                         <div className='conocimientos-contenedor-iconos'>
                                 {iconosProgramacion.map(({ ruta, nombre }, indice) => (
-                                    <div key={ nombre } className={`conocimientos-iconos-programacion conocimientos-iconos conocimientos-iconos-${nombre} ${indice===3&&`en-medio`}`} style={{transform: `translateX(${posicion}px)`, margin: `${tamañosIconos.margenAlto}px ${tamañosIconos.margenAncho}px`, padding: `${tamañosIconos.paddingAlto}px ${tamañosIconos.paddingAncho}px`}}>
+                                    <div key={ indice } className={`conocimientos-iconos-programacion conocimientos-iconos conocimientos-iconos-${nombre} ${indice===3&&`en-medio`}`} style={{transform: `translateX(${posicion}px)`, margin: `${tamañosIconos.margenAlto}px ${tamañosIconos.margenAncho}px`, padding: `${tamañosIconos.paddingAlto}px ${tamañosIconos.paddingAncho}px`}}>
                                         <Image className='conocimientos-icono-image' key={ nombre } src={ ruta } alt={ nombre } title={ nombre }loading='lazy' />
                                     </div>
                                 ))}
