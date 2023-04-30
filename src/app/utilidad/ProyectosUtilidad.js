@@ -1,5 +1,6 @@
 import porquesiImg from '../img/png/porquesiproyecto.png'
 import miwebImg from '../img/png/estawebproyecto.png'
+import busappImg from '../img/png/busappproyecto.png'
 export const ProyectosUtilidad = [
     {
         id: 1,
@@ -27,7 +28,7 @@ export const ProyectosUtilidad = [
         descripcion: 'Este diseño de aplicación en dasarrollo bla bla bla bla bla bla',
         seleccionada: false,
         
-        imagen: '',
+        imagen: busappImg,
         github: '',
         web: ''
     }
