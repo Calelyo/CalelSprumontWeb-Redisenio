@@ -96,9 +96,10 @@
 }
 
 .proyectos-links-actual{
-    position: absolute;
+    position: relative;
     width: 100%;
-    top: 30vh;
+    /* top: calc(35vh + 4rem); */
+    top: 10vh;
     right: 0;
     /* bottom: 2rem; */
     display: flex;
@@ -169,6 +170,7 @@
 
 .proyecto-image{
     position: relative;
+    height: 100%;
     /* z-index: 3; */
 }
 
@@ -238,6 +240,15 @@
     display: none;
 }
 
+
+@media screen and (max-width: 1366px){
+    .proyecto-image{
+        /* top: -15vh; */
+        /* height: 100%; */
+    }
+
+}
+
 @media screen and (max-width: 960px) {
     .proyectos-seccion{
         display: flex;
@@ -301,7 +312,7 @@
         flex-direction: row;
         justify-content: center;
         gap: 2rem;
-        top: 18vh;
+        top: 16vh;
     }
 
     .proyectos-titulo-actual{
@@ -320,9 +331,9 @@
     }
 
     .proyectos-descripcion-actual{
-        font-size: 0.9rem;
-        width: 130%;
-
+        font-size: 0.8rem;
+        width: 300%;
+        
         transition: linear 0.2s;
         transition-delay: 0.6s;
         right: 0vw;
@@ -369,11 +380,13 @@
     }
     
     .proyectos-links-actual{
-        top: 12vh;
+        position: absolute;
+        top: 17vh;
         right: 0;
 
         transition: linear 0.4s;
         transition-delay: 0.4s;
+        transform: scale(0.8);
     }
     .proyectos-fuera .proyectos-links-actual{
         top: 25vh;

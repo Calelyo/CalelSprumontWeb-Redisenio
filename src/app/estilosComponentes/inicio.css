@@ -157,22 +157,25 @@
 }
 .contenedor-sobre-mi{
     position: absolute;
-    bottom: -25vh;
+    bottom: -35vh;
     left: 45vw;
     width: 25vw;
     height: auto;
     border: solid 1px white;
     background-color: #1F1F1F;
     color: white;
+    opacity: 0;
 
     transition: linear 0.3s;
 }
 .contenedor-sobre-mi.sobre-mi-abierto{
     bottom: 20vh;
+    opacity: 1;
     transition: linear 0.3s;
 }
 .inicio-fuera .contenedor-sobre-mi{
-    bottom: -15vh;
+    opacity: 0;
+    bottom: -35vh;
 }
 .sobre-mi-texto{
     margin: 1.5rem;

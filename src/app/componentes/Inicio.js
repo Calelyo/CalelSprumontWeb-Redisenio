@@ -82,7 +82,10 @@ export default function Inicio(props){
 
                 <div className={`contenedor-sobre-mi ${sobreMiAbierto&&`sobre-mi-abierto`}`}>
                     <div className='sobre-mi-texto'>
-                        Acá va el texto de sobre mi, que no se bien que voy a poner. Una tipa rapaz, como te gusta a vos. Esa tipa vino a consolarteeeee.
+                        Empecé a estudiar Diseño Visual, el concepto de diseño fue algo que marcó mi vida.
+                        Por las vueltas de la vida me desvié de ese camino para incursionar en el mundo de la programación.
+                        Casi sin darme cuenta me decanté por el Front End, fue ahí donde ambos caminos convergieron
+                        y encontré un punto donde ambas pasiones, el diseño de comunicación y la programación, conviven.
                     </div>
                     <div className='sobre-mi-flecha' onClick={()=>sobreMi()}>
                         <Image className='sobre-mi-flecha-image' src={flechaverde} alt='Flecha cerrar' loading='lazy' />

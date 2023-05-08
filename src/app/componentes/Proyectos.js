@@ -98,7 +98,7 @@ export default function Proyectos(){
                             {proyectosObj.map((proyecto)=>(
                                 // style={{left: proyecto.id!=1?(proyecto.id*250):25}}
                                 <div key={proyecto.id} className='proyectos-proyectos-individuales'>
-                                    <Image className={`proyecto-image `} src={ proyecto.imagen } alt={ proyecto.titulo } loading='lazy' />
+                                    <Image className={`proyecto-image ${proyecto.clase}`} src={ proyecto.imagen } alt={ proyecto.titulo } loading='lazy' />
                                 </div>
                             ))}
 
