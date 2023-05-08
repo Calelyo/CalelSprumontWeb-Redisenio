@@ -9,7 +9,6 @@
     height: 100vh;
     position: relative;
     display: flex;
-    /* align-items: center; */
     justify-content: center;
 }
 
@@ -17,7 +16,6 @@
     width: var(--ancho-mitad-grande);
     height: 100vh;
     display: flex;
-    /* align-items: center; */
     justify-content: center;
     position: relative;
     right: 0;
@@ -44,7 +42,6 @@
 }
 
 .proyectos-info-actual.fuera{
-    /* display: none; */
     top: 25vh;
     opacity: 0;
 }
@@ -101,9 +98,7 @@
     /* top: calc(35vh + 4rem); */
     top: 10vh;
     right: 0;
-    /* bottom: 2rem; */
     display: flex;
-    /* margin-top: 2rem; */
     justify-content: center;
     align-items: center;
 
@@ -119,11 +114,8 @@
 
 .proyectos-contenedor-proyectos{
     position: relative;
-    /* width: 35vw;
-    height: 80vh; */
     width: calc(30vw + 5vh);
     height: calc(90vh - 10vw);
-    /* margin-top: 5vh; */
     margin-top: calc(6vh + 1vw);
     display: flex;
     justify-content: center;
@@ -138,7 +130,6 @@
 .proyectos-contenedor-map{
     position: absolute;
     width: 300%; /* Cantidad de proyectos por 100 */
-    /* height: auto; */
     height: 65vh;
     left: 0;
     top: 0;
@@ -157,7 +148,6 @@
     position: relative;
     width: 75%;
     height: 80%;
-    /* background-color: rgb(219, 219, 219); */
     background-color: #9A9891;
     border-radius: 10px;
     top: 2vh;
@@ -171,15 +161,12 @@
 .proyecto-image{
     position: relative;
     height: 100%;
-    /* z-index: 3; */
 }
 
 .proyectos-tres-puntos{
     display: flex;
     flex-direction: row;
     position: absolute;
-    /* bottom: 3.5vh; */
-    /* bottom: calc(7vh - 3vw); */
     bottom: 1.5vh;
 }
 
@@ -240,15 +227,6 @@
     display: none;
 }
 
-
-@media screen and (max-width: 1366px){
-    .proyecto-image{
-        /* top: -15vh; */
-        /* height: 100%; */
-    }
-
-}
-
 @media screen and (max-width: 960px) {
     .proyectos-seccion{
         display: flex;
@@ -299,10 +277,8 @@
         background-color: rgb(219, 219, 219);
         border-radius: 10px;
         top: 0vh;
-        /* margin: 0rem; */
     }
     .proyecto-image{
-        /* width: 100%; */
         width: auto;
         height: auto;
     }
@@ -340,7 +316,7 @@
     }
 
     .proyectos-fuera .proyectos-descripcion-actual{
-        right: -60vw;
+        right: -80vw;
         transition: linear 0.2s;
         transition-delay: 0s;
     } 
@@ -369,7 +345,6 @@
         content: '';
         position: absolute;
         bottom: -2rem;
-        /* left: -3rem; */
         right: 0;
         height: 5px;
         width: 200%;

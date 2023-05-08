@@ -3,13 +3,11 @@ import Image from 'next/image'
 import '../estilosComponentes/conocimientos.css'
 import { useEffect, useState } from 'react';
 import flecha from '../img/png/flecha.png'
-import { isJsxOpeningLikeElement, transform } from 'typescript';
 
 const conocimientosDiseñoImg = require.context('../img/png/conocimientos/diseño', true);
 const conocimientosProgramacionImg = require.context('../img/png/conocimientos/programacion', true);
 const conocimientosDiseñoImgKeys = conocimientosDiseñoImg.keys();
 const conocimientosProgramacionImgKeys = conocimientosProgramacionImg.keys();
-
 
 const conocimientosDiseñoImgRutas = conocimientosDiseñoImgKeys.map(key => {
     const imgRuta = conocimientosDiseñoImg(key);
@@ -29,10 +27,7 @@ export default function Conocimientos(){
     const [posicion, setPosicion] = useState(109);
     const numIconos = 3; // número total de iconos
     const anchoIcono = 100; // ancho de cada icono en píxeles
-    // const [tamañosIconos, setTamañosIconos] = useState({margenAncho: 32, paddingAncho: 22, margenAlto: 60, paddingAlto: 5})
-
     
-    // ESTO NO SE DEFINE, QUIERO QUE SE DEFINA SEGUN EL TAMAÑO DE LA PANTALLA
     const [tamañosIconos, setTamañosIconos] = useState(()=>{
         const movil = window.innerWidth <= 999;
         console.log('valor de window.innerWidth:', window.innerWidth);
@@ -40,17 +35,17 @@ export default function Conocimientos(){
         console.log('movil:', movil);
         const iconosMovil = {margenAncho: 8, paddingAncho: 26, margenAlto: 22, paddingAlto: 2};
         const iconosMonitor = {margenAncho: 32, paddingAncho: 22, margenAlto: 60, paddingAlto: 5};
-        // if(movil){return iconosMovil} else return iconosMonitor;
+        
         return movil ? iconosMovil : iconosMonitor
     })
     const [anchoContenedor, setAnchoContenedor] = useState(()=>{
         const movil = window.innerWidth <= 999;
         const contenedorMovil = screen.width;
         const contenedorMonitor = (anchoIcono + (tamañosIconos.margenAncho*3) + (tamañosIconos.paddingAncho*2)) * numIconos;
-        // if(movil){return contenedorMovil;} else {return contenedorMonitor;}
+        
         return movil ? contenedorMovil : contenedorMonitor
     });
-    // -----------------
+    
 
     const [iconosDiseño, setIconosDiseño] = useState(conocimientosDiseñoImgRutas);
     const [iconosProgramacion, setIconosProgramacion] = useState(conocimientosProgramacionImgRutas);
@@ -59,21 +54,17 @@ export default function Conocimientos(){
     
     function anchoContenedorConocimientos(){
         if(tamañoPantalla.width <= 999){
-            // return screen.width
             setAnchoContenedor(screen.width)
         }
         else{
-            // return (anchoIcono + (tamañosIconos.margenAncho*3) + (tamañosIconos.paddingAncho*2)) * numIconos
             setAnchoContenedor((anchoIcono + (tamañosIconos.margenAncho*3) + (tamañosIconos.paddingAncho*2)) * numIconos)
         }
     }
     function tamañosIconosResponsive(){
         if(tamañoPantalla.width <= 999){
-            // return {margenAncho: 8, paddingAncho: 26, margenAlto: 22, paddingAlto: 2}
             setTamañosIconos({margenAncho: 8, paddingAncho: 26, margenAlto: 22, paddingAlto: 2})
         }
         else{
-            // return {margenAncho: 32, paddingAncho: 22, margenAlto: 60, paddingAlto: 5}
             setTamañosIconos({margenAncho: 32, paddingAncho: 22, margenAlto: 60, paddingAlto: 5})
         }
     }
@@ -118,15 +109,12 @@ export default function Conocimientos(){
     function moverIzquierda(seccion){
         if(seccion === 'd'){
             const nuevosIconos = [iconosDiseño[iconosDiseño.length - 1], ...iconosDiseño.slice(0, -1)];
-            // const nuevosIconos = [iconosDiseño.slice(-1)[0], ...iconosDiseño.slice(0, -1)];
-            console.log(nuevosIconos)
             setIconosDiseño(nuevosIconos)
         }
         if(seccion === 'p'){
             const nuevosIconos = [iconosProgramacion[iconosProgramacion.length - 1], ...iconosProgramacion.slice(0, -1)];
             setIconosProgramacion(nuevosIconos)
         }
-        console.log('Mover Derecha')
     }
 
     return(

@@ -5,7 +5,6 @@ import foto from '../img/png/foto-inicio.png'
 import botonCV from '../img/png/boton-cv.png'
 import cv from '../pdfs/CalelSprumontCurriculumVitae2022.pdf'
 import flechaverde from '../img/png/flechaverde.png'
-import styles from '../estilosComponentes/inicio.css'
 import { useEffect, useState } from 'react'
 
 export default function Inicio(props){
@@ -36,7 +35,6 @@ export default function Inicio(props){
 
     return(
         <section className='inicio-seccion'>
-            {/* ${!seccion.inicio && `fuera`} */}
             <div className={`inicio-mitad-izquierda`}>
                 <div className='inicio-titulo'>
                     <div className={`inicio-titulo-nombre`}>

@@ -4,7 +4,7 @@ import flecha from '../img/png/flecha.png'
 import github from '../img/png/contacto/githubblanco.png'
 import web from '../img/png/contacto/webico.png'
 import { ProyectosUtilidad } from '../utilidad/ProyectosUtilidad.js'
-import { use, useState } from 'react'
+import { useState } from 'react'
 
 export default function Proyectos(){
 
@@ -13,16 +13,6 @@ export default function Proyectos(){
 
     function cambiarProyecto(direccion){
         
-        // return {
-        //     ...proyecto,
-        //     seleccionada: false
-        // }
-
-        proyectosObj.forEach((proyecto, index) => {
-            // console.log( { ...proyecto,seleccionada: false } );
-        })
-
-        // let idNueva = idProyectoActual;
         let idNueva = direccion;
         (direccion === 'd' && idProyectoActual != proyectosObj.length) && (idNueva = idProyectoActual + 1);
         (direccion === 'd' && idProyectoActual === proyectosObj.length) && (idNueva = 1);
@@ -31,7 +21,7 @@ export default function Proyectos(){
 
         setProyectosObj(proyectosTemp => {
 
-            return proyectosTemp.map((proyecto, index) => {
+            return proyectosTemp.map((proyecto) => {
                 if(proyecto.seleccionada){
                     proyecto.seleccionada = false
                 }
@@ -43,13 +33,6 @@ export default function Proyectos(){
             })
         })
 
-     }
-
-     function leftProyecto(id){
-        const distancia = 25
-        if(id === idProyectoActual){
-            return distancia;
-        }
      }
     
     return(
@@ -91,12 +74,10 @@ export default function Proyectos(){
             <div className='proyectos-mitad-derecha'>
                 <div className='contenedor-flechas'>
                     <div className='proyectos-contenedor-proyectos'>
-
-                        {/* AGREGAR idProyectoActual AL AGREGAR PROYECTO (temporal) */}
+                        
                         <div className={`proyectos-contenedor-map ${idProyectoActual===2&&`proyecto-dos`} ${idProyectoActual===3&&`proyecto-tres`}`}>
 
                             {proyectosObj.map((proyecto)=>(
-                                // style={{left: proyecto.id!=1?(proyecto.id*250):25}}
                                 <div key={proyecto.id} className='proyectos-proyectos-individuales'>
                                     <Image className={`proyecto-image ${proyecto.clase}`} src={ proyecto.imagen } alt={ proyecto.titulo } loading='lazy' />
                                 </div>

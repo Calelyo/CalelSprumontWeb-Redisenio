@@ -45,8 +45,6 @@
     
     position: relative;
     left: 0;
-    /* transition: linear 0.3s; */
-    /* transition-delay: 0.2s; */
 }
 
 .contacto-fuera .contacto-contenedor-iconos{
@@ -76,8 +74,6 @@
 }
 
 .contacto-icono-image:hover{
-    /* filter: brightness(20); */
-    /* filter: sepia(0.5) hue-rotate(270deg); */
     transform: scale(1.05);
 }
 
@@ -90,8 +86,7 @@
     .contacto-seccion{
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        /* justify-content: flex-start; */
+        align-items: flex-start;        
     }
     
     .contacto-parte-negra{
@@ -101,12 +96,10 @@
         justify-content: center;
         position: relative;
         top: 8.5rem;
-        /* left: -13rem; */
         background-color: #1F1F1F;
 
         border: solid 1px #7882D4;
         border-left: 0;
-        /* border-right: 1px; */
         border-bottom: 0;
         border-top: 0;
         box-shadow: 2px 5px 7px 0px #7882D4;
@@ -143,7 +136,6 @@
         content: '';
         position: absolute;
         bottom: -2rem;
-        /* left: -3rem; */
         right: -6rem;
         height: 5px;
         width: 300vw;
