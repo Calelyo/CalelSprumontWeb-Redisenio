@@ -34,14 +34,58 @@ body {
   overflow: hidden;
 }
 
+/* .secciones{
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+} */
+
+
 .componente-inicio{
   position: relative;
   top: 0rem;
+  visibility: visible;
   transition: linear 0.5s;
 }
-/* .componente-inicio.fuera{
-  top: 70rem;
-} */
+.componente-inicio.inicio-fuera{
+  visibility: hidden;
+  transition-delay: 0.5s;
+}
+
+.componente-conocimientos{
+  position: relative; /*ESTO EN ABSOLUTE ANDA BIEN MENOS QUE SE PUEDE MOVER LA PANTALLA*/
+  top: -100vh; /*ASI FUNCIONA EN RELATIVE, VEREMOS CUANDO LE APLIQUE A LAS DEMAS SECCIONES*/
+  display: flex;
+  visibility: visible;
+}
+.componente-conocimientos.conocimientos-fuera{
+  visibility: hidden;
+  transition-delay: 0.5s;
+}
+
+.componente-proyectos{
+  position: relative;
+  top: -200vh;
+  display: flex;
+  visibility: visible;
+}
+.componente-proyectos.proyectos-fuera{
+  visibility: hidden;
+  transition-delay: 0.5s;
+}
+
+.componente-contacto{
+  position: relative;
+  top: -300vh;
+  display: flex;
+  visibility: visible;
+}
+.componente-contacto.contacto-fuera{
+  visibility: hidden;
+  transition-delay: 0.5s;
+}
+
+
 
 .menu-global{
   position: absolute;
@@ -54,9 +98,13 @@ body {
 
   transition: linear 0.2s;
   z-index: 1;
+  
+  transition-delay: 0.3s;
 }
 .menu-global.fuera{
   top: -20rem;
+  
+  transition-delay: 0s;
 }
 .menu-global-inicio{
   position: absolute;
@@ -160,9 +208,15 @@ body {
     position: absolute;
     right: 0;
     top: 4rem;
+    visibility: visible;
+
+    transition: linear 0.2s;
   }
   .contenedor-menu-hamburguesa.fuera{
-    display: none;
+    position: relative;
+    right: -20vw;
+    visibility: hidden;
+    transition: none;
   }
 
   .contenedor-menu-hamburguesa.color-hambuerguesa-conocimientos{background-color: #76DD7A;}
@@ -185,7 +239,7 @@ body {
     width: 100vw;
     height: 100vh;
     font-size: 1.1rem;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
 
     display: flex;
     flex-direction: column;
@@ -195,19 +249,26 @@ body {
     z-index: 1;
   }
   .menu-global.fuera-responsive{
-    /* TEMPORTAL */
-    /* left: -200rem; */
     display: none;
   }
 
-  .menu-global div{
-    margin: 0.8rem;
+  .contenedor-menu-global-responsive{
+    background-color: #1F1F1F;
+    width: 100vw;
+    border-top: 1px solid #76DD7A;
+    border-bottom: 1px solid #76DD7A;
+    filter: drop-shadow(0 0 16px #76dd7983);
+  }
+
+  .menu-global div:not(.menu-global-inicio){
+    margin: 0.8rem 0rem;
   }
 
   .menu-global-inicio{
     position: relative;
     display: flex;
     /* margin: 0px calc(var(--margen-horizontal-inicio) - 3vw); */
+    margin: 1.8rem 0rem;
     align-items: center;
     flex-direction: column;
   }
@@ -221,7 +282,7 @@ body {
   }
 
   .menu-global-seccion.palabra-elegida{
-    color: rgb(170, 170, 170);
+    color: rgb(94, 94, 94);
     transition: linear 0.3s;
   }
   .seccion-elegida{

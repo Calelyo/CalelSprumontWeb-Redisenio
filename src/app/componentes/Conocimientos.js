@@ -1,7 +1,7 @@
 // 'use client'
 import Image from 'next/image'
 import '../estilosComponentes/conocimientos.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import flecha from '../img/png/flecha.png'
 import { isJsxOpeningLikeElement, transform } from 'typescript';
 
@@ -30,35 +30,77 @@ export default function Conocimientos(){
     const numIconos = 3; // número total de iconos
     const anchoIcono = 100; // ancho de cada icono en píxeles
     // const [tamañosIconos, setTamañosIconos] = useState({margenAncho: 32, paddingAncho: 22, margenAlto: 60, paddingAlto: 5})
-    const [tamañosIconos, setTamañosIconos] = useState(tamañosIconosResponsive())
-    // const anchoContenedor = (anchoIcono + (tamañosIconos.margenAncho*3) + (tamañosIconos.paddingAncho*2)) * numIconos;
-    const anchoContenedor = anchoContenedorConocimientos();
+
+    
+    // ESTO NO SE DEFINE, QUIERO QUE SE DEFINA SEGUN EL TAMAÑO DE LA PANTALLA
+    const [tamañosIconos, setTamañosIconos] = useState(()=>{
+        const movil = window.innerWidth <= 999;
+        console.log('valor de window.innerWidth:', window.innerWidth);
+        console.log('valor de screen.width:', screen.width);
+        console.log('movil:', movil);
+        const iconosMovil = {margenAncho: 8, paddingAncho: 26, margenAlto: 22, paddingAlto: 2};
+        const iconosMonitor = {margenAncho: 32, paddingAncho: 22, margenAlto: 60, paddingAlto: 5};
+        // if(movil){return iconosMovil} else return iconosMonitor;
+        return movil ? iconosMovil : iconosMonitor
+    })
+    const [anchoContenedor, setAnchoContenedor] = useState(()=>{
+        const movil = window.innerWidth <= 999;
+        const contenedorMovil = screen.width;
+        const contenedorMonitor = (anchoIcono + (tamañosIconos.margenAncho*3) + (tamañosIconos.paddingAncho*2)) * numIconos;
+        // if(movil){return contenedorMovil;} else {return contenedorMonitor;}
+        return movil ? contenedorMovil : contenedorMonitor
+    });
+    // -----------------
 
     const [iconosDiseño, setIconosDiseño] = useState(conocimientosDiseñoImgRutas);
     const [iconosProgramacion, setIconosProgramacion] = useState(conocimientosProgramacionImgRutas);
+
+    const [tamañoPantalla, setTamañoPantalla] = useState({ width: window.innerWidth, height: window.innerHeight });
     
     function anchoContenedorConocimientos(){
-        if(screen.width <= 960){
-            return screen.width
+        if(tamañoPantalla.width <= 999){
+            // return screen.width
+            setAnchoContenedor(screen.width)
         }
         else{
-            return (anchoIcono + (tamañosIconos.margenAncho*3) + (tamañosIconos.paddingAncho*2)) * numIconos
+            // return (anchoIcono + (tamañosIconos.margenAncho*3) + (tamañosIconos.paddingAncho*2)) * numIconos
+            setAnchoContenedor((anchoIcono + (tamañosIconos.margenAncho*3) + (tamañosIconos.paddingAncho*2)) * numIconos)
         }
     }
     function tamañosIconosResponsive(){
-        if(window.screen.width <= 960){
-            return {margenAncho: 8, paddingAncho: 26, margenAlto: 22, paddingAlto: 2}
+        if(tamañoPantalla.width <= 999){
+            // return {margenAncho: 8, paddingAncho: 26, margenAlto: 22, paddingAlto: 2}
+            setTamañosIconos({margenAncho: 8, paddingAncho: 26, margenAlto: 22, paddingAlto: 2})
         }
         else{
-            return {margenAncho: 32, paddingAncho: 22, margenAlto: 60, paddingAlto: 5}
+            // return {margenAncho: 32, paddingAncho: 22, margenAlto: 60, paddingAlto: 5}
+            setTamañosIconos({margenAncho: 32, paddingAncho: 22, margenAlto: 60, paddingAlto: 5})
         }
     }
+
+    useEffect(() => {
+        const handleResize = () => {
+            setTamañoPantalla({ width: window.innerWidth, height: window.innerHeight });
+        };
+        
+        window.addEventListener('resize', handleResize);
+    
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      });
+        
+    useEffect(()=>{
+        anchoContenedorConocimientos();
+        tamañosIconosResponsive();
+        console.log('cambio tamaño')
+    }, [tamañoPantalla])
 
     function cambiarSeleccion(sel){
         sel === 'd' && setSeccionElegida({ diseño: true, programacion: false })
         sel === 'p' && setSeccionElegida({ diseño: false, programacion: true })
 
-        console.log(window.screen.width)
+        console.log(window.screen.width)    
     }
 
     function moverDerecha(seccion){

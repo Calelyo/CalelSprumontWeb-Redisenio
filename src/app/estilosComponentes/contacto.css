@@ -12,6 +12,7 @@
     width: 100vw;
     height: auto;
     position: relative;
+    left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,6 +24,15 @@
     border-right: 0;
 
     overflow: hidden;
+    
+    transition: linear 0.3s;
+    transition-delay: 0.3s;
+}
+
+.contacto-fuera .contacto-parte-negra{
+    left: -102vw;
+    transition: linear 0.3s;
+    transition-delay: 0s;
 }
 
 .contacto-contenedor-iconos{
@@ -32,6 +42,17 @@
     font-size: 1rem;
     text-align: center;
     margin: 4rem;
+    
+    position: relative;
+    left: 0;
+    /* transition: linear 0.3s; */
+    /* transition-delay: 0.2s; */
+}
+
+.contacto-fuera .contacto-contenedor-iconos{
+    left: 100vw;
+    transition: linear 0.3s;
+    transition-delay: 0s;
 }
 
 .contacto-iconos-individuales{
@@ -115,6 +136,8 @@
         margin: 0 0 0 4rem;
         color: white;
         font-size: 2rem;
+
+        transition: linear 0.3s;
     }
     .contacto-titulo-responsive::before{
         content: '';
@@ -125,5 +148,10 @@
         height: 5px;
         width: 300vw;
         background-color: rgb(202, 202, 202);
+    }
+
+    
+    .contacto-fuera .contacto-titulo-responsive{
+        left: -30vh;
     }
 }

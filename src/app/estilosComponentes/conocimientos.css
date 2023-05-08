@@ -6,10 +6,17 @@
 .conocimientos-mitad-izquierda{
     background-color: #1F1F1F;
     position: relative;
+    left: 0vw;
     display: flex;
     flex-direction: column;
     width: var(--ancho-mitad-chica);
     height: 100vh;
+
+    transition: linear 0.4s;
+}
+
+.conocimientos-fuera .conocimientos-mitad-izquierda{
+    left: -150vw;
 }
 
 .conocimientos-seleccion{
@@ -60,6 +67,27 @@
     /* max-width: var(--ancho-mitad-grande); */
 
     color: white;
+}
+
+.conocimientos-texto-diseño{
+    position: relative;
+    left: 0;
+
+    transition: linear 0.4s;
+} 
+.conocimientos-fuera .conocimientos-texto-diseño{
+    position: relative;
+    left: 60vw;
+}
+.conocimientos-texto-programacion{
+    position: relative;
+    left: 0;
+
+    transition: linear 0.4s;
+} 
+.conocimientos-fuera .conocimientos-texto-programacion{
+    position: relative;
+    left: 60vw;
 }
 
 .conocimientos-contenedor-info.conocimientos-fuera{
@@ -163,9 +191,18 @@
 
 .contenedor-flechas{
     position: relative;
+    left: 0;
    /* min-width: 20vw;  Ancho máximo del contenedor de iconos */
     display: flex;
     align-items: center;
+
+    transition: linear 0.3s;
+    transition-delay: 0.3s;
+}
+.conocimientos-fuera .contenedor-flechas{
+    left: 60vw;
+    transition: linear 0.4s;
+    transition-delay: 0s;
 }
 .conocimientos-flecha{
     position: absolute;
@@ -218,6 +255,8 @@
         margin: 0 0 0 1rem;
         color: white;
         font-size: 2rem;
+
+        transition: linear 0.3s;
     }
     .conocimientos-titulo-responsive::before{
         content: '';
@@ -229,6 +268,9 @@
         width: 200%;
         background-color: rgb(202, 202, 202);
     }
+    .conocimientos-fuera .conocimientos-titulo-responsive{
+        left: -30vh;
+    }
 
     .conocimientos-mitad-izquierda{
         background-color: #1F1F1F;
@@ -237,6 +279,14 @@
         flex-direction: column;
         width: 100vw;
         height: 40vh;
+        bottom: 0px;
+        left: 0;
+    }
+    .conocimientos-fuera .conocimientos-mitad-izquierda{
+        bottom: -40vh;
+        left: 0;
+
+        transition-delay: 0.5s;
     }
 
     .conocimientos-mitad-derecha{
@@ -278,12 +328,24 @@
         top: 16vh;
         left: 7vw;    
         width: 70%;
+
+        transition-delay: 0.5s;
+    }
+    .conocimientos-fuera .conocimientos-texto-diseño{
+        top: 55vh;
+        left: 7vw;    
+
     }
     .conocimientos-texto-programacion{
         position: relative;
         top: 16vh;
         left: 7vw;    
         width: 70%;
+        
+        transition-delay: 0.5s;
+    }
+    .conocimientos-fuera .conocimientos-texto-programacion{
+        left: -70vw;
     }
     
     .conocimientos-contenedor-iconos{
@@ -300,5 +362,11 @@
     }
     .conocimientos-flecha-derecha{
         right: 1rem;
+    }
+    
+    .conocimientos-fuera .contenedor-flechas{
+        left: 100vw;
+        transition: linear 0.4s;
+        transition-delay: 0s;
     }
 }

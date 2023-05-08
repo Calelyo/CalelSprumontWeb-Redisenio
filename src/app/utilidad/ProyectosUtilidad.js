@@ -19,7 +19,7 @@ export const ProyectosUtilidad = [
         seleccionada: false,
 
         imagen: miwebImg,
-        github: 'https://calelsprumont.web.app',
+        github: 'https://github.com/Calelyo/CalelSprumontWeb-Redisenio',
         web: ''
     },
     {

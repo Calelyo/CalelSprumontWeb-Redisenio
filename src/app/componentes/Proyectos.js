@@ -61,7 +61,7 @@ export default function Proyectos(){
 
             <div className='proyectos-mitad-izquierda'>
                     {proyectosObj.map((proyecto) => (
-                        <div className={`proyectos-info-actual ${!proyecto.seleccionada && `fuera`}`}>
+                        <div key={proyecto.id} className={`proyectos-info-actual ${!proyecto.seleccionada && `fuera`}`}>
                             <div className='proyectos-titulo-actual'>
                                 {proyecto.titulo}
                             </div>
@@ -97,7 +97,7 @@ export default function Proyectos(){
 
                             {proyectosObj.map((proyecto)=>(
                                 // style={{left: proyecto.id!=1?(proyecto.id*250):25}}
-                                <div className='proyectos-proyectos-individuales'>
+                                <div key={proyecto.id} className='proyectos-proyectos-individuales'>
                                     <Image className={`proyecto-image `} src={ proyecto.imagen } alt={ proyecto.titulo } loading='lazy' />
                                 </div>
                             ))}

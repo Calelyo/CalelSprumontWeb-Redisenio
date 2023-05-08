@@ -20,7 +20,17 @@
     /* align-items: center; */
     justify-content: center;
     position: relative;
+    right: 0;
     background-color: #1F1F1F;
+
+    transition: linear 0.5s;
+    transition-delay: 0.3s;
+}
+
+.proyectos-fuera .proyectos-mitad-derecha{
+    right: -100vw;
+    transition: linear 0.4s;
+    transition-delay: 0s;
 }
 
 .proyectos-info-actual{
@@ -29,15 +39,44 @@
     position: absolute;
     top: 20vh;
     width: 75%;
+    opacity: 1;
+    transition: linear 0.2s;
 }
 
 .proyectos-info-actual.fuera{
-    display: none;
+    /* display: none; */
+    top: 25vh;
+    opacity: 0;
 }
 
 .proyectos-titulo-actual{
+    position: relative;
+    right: 0;
     margin-bottom: 2rem;
     font-size: 1.6rem;
+
+    transition: linear 0.2s;
+    transition-delay: 0.3s;
+}
+
+.proyectos-fuera .proyectos-titulo-actual{
+    right: 15vw;
+    transition: linear 0.2s;
+    transition-delay: 0;
+}
+
+.proyectos-descripcion-actual{
+    position: relative;
+    right: 0;
+
+    transition: linear 0.3s;
+    transition-delay: 0.4s;
+}
+
+.proyectos-fuera .proyectos-descripcion-actual{
+    right: 35vw;
+    transition: linear 0.3s;
+    transition-delay: 0;
 }
 
 .img-actual{
@@ -60,13 +99,22 @@
     position: absolute;
     width: 100%;
     top: 30vh;
+    right: 0;
     /* bottom: 2rem; */
     display: flex;
     /* margin-top: 2rem; */
     justify-content: center;
     align-items: center;
+
+    transition: linear 0.6s;
+    transition-delay: 0.4s;
 }
 
+.proyectos-fuera .proyectos-links-actual{
+    right: 25vw;
+    transition: linear 0.3s;
+    transition-delay: 0;
+}
 
 .proyectos-contenedor-proyectos{
     position: relative;
@@ -89,10 +137,13 @@
 .proyectos-contenedor-map{
     position: absolute;
     width: 300%; /* Cantidad de proyectos por 100 */
-    height: auto;
+    /* height: auto; */
+    height: 65vh;
     left: 0;
     top: 0;
     display: flex;
+
+    transition: cubic-bezier(0, 0, 0.15, 1.26) 0.2s;
 }
 .proyectos-contenedor-map.proyecto-dos{
     left: -100%;
@@ -147,6 +198,8 @@
    /* min-width: 20vw;  Ancho máximo del contenedor de iconos */
     display: flex;
     align-items: center;
+
+    transition: linear 0.3s;
 }
 
 .proyectos-flecha{
@@ -199,6 +252,14 @@
         position: relative;
         top: 8.5rem;
         background-color: #1F1F1F;
+        
+        transition: linear 0.4s;
+        transition-delay: 0.6s;
+    }    
+    .proyectos-fuera .proyectos-mitad-derecha{
+        right: -100vw;
+        transition: linear 0.4s;
+        transition-delay: 0s;
     }
 
     .proyectos-mitad-izquierda{
@@ -247,13 +308,39 @@
         font-size: 1rem;
         margin-bottom: 0;
         width: 100%;
+
+        transition: linear 0.2s;
+        transition-delay: 0.6s;
+    }
+
+    .proyectos-fuera .proyectos-titulo-actual{
+        right: 28vw;
+        transition: linear 0.2s;
+        transition-delay: 0;
     }
 
     .proyectos-descripcion-actual{
         font-size: 0.9rem;
         width: 130%;
+
+        transition: linear 0.2s;
+        transition-delay: 0.6s;
+        right: 0vw;
     }
 
+    .proyectos-fuera .proyectos-descripcion-actual{
+        right: -60vw;
+        transition: linear 0.2s;
+        transition-delay: 0s;
+    } 
+
+    .proyectos-flecha-derecha{
+        top: 25vh;
+    }
+    .proyectos-flecha-izquierda{
+        top: 25vh;
+    }
+    
 
     .proyectos-titulo-responsive{
         height: 2.5rem;
@@ -264,6 +351,8 @@
         margin: 0 0 0 1rem;
         color: white;
         font-size: 2rem;
+
+        transition: linear 0.3s;
     }
     .proyectos-titulo-responsive::before{
         content: '';
@@ -275,9 +364,23 @@
         width: 200%;
         background-color: rgb(202, 202, 202);
     }
+    .proyectos-fuera .proyectos-titulo-responsive{
+        left: -30vh;
+    }
     
     .proyectos-links-actual{
         top: 12vh;
+        right: 0;
+
+        transition: linear 0.4s;
+        transition-delay: 0.4s;
+    }
+    .proyectos-fuera .proyectos-links-actual{
+        top: 25vh;
+        right: 0;
+
+        transition: linear 0.4s;
+        transition-delay: 0s;
     }
 
 }

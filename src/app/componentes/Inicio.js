@@ -3,12 +3,15 @@ import '../estilosComponentes/inicio.css'
 import Image from 'next/image'
 import foto from '../img/png/foto-inicio.png'
 import botonCV from '../img/png/boton-cv.png'
+import cv from '../pdfs/CalelSprumontCurriculumVitae2022.pdf'
+import flechaverde from '../img/png/flechaverde.png'
 import styles from '../estilosComponentes/inicio.css'
 import { useEffect, useState } from 'react'
 
 export default function Inicio(props){
 
     const [seccion, setSeccion] = useState(props.seccion)
+    const [sobreMiAbierto, setSobreMiAbierto] = useState(false)
 
     useEffect(() => {
         setSeccion(props.seccion);
@@ -27,10 +30,14 @@ export default function Inicio(props){
         setSeccion({inicio: false, conocimientos: false, proyectos: false, contacto: true})
     }
 
+    function sobreMi(){
+        setSobreMiAbierto(!sobreMiAbierto)
+    }
+
     return(
         <section className='inicio-seccion'>
-
-            <div className={`inicio-mitad-izquierda ${!seccion.inicio && `fuera`}`}>
+            {/* ${!seccion.inicio && `fuera`} */}
+            <div className={`inicio-mitad-izquierda`}>
                 <div className='inicio-titulo'>
                     <div className={`inicio-titulo-nombre`}>
                         Calel Sprumont
@@ -44,11 +51,13 @@ export default function Inicio(props){
                         </div>
                     </div>
                 </div>
-                <div className={`inicio-foto`}>
-                    <Image className='inicio-foto-image' src={ foto } alt='foto Calel Sprumont' loading='lazy'></Image>
-                </div>
-                <div className='boton-sobre-mi'>
-                    Sobre Mí
+                <div className={`contenedor-foto-sobre-mi ${sobreMiAbierto&&`sobre-mi-abierto`}`}>
+                    <div className={`inicio-foto`}>
+                        <Image className={`inicio-foto-image ${sobreMiAbierto&&`sobre-mi-abierto`}`} src={ foto } alt='foto Calel Sprumont' loading='lazy'></Image>
+                    </div>
+                    <div className={`boton-sobre-mi ${sobreMiAbierto&&`sobre-mi-abierto`}`} onClick={()=>sobreMi()}>
+                        Sobre Mí
+                    </div>
                 </div>
             </div>
 
@@ -65,8 +74,21 @@ export default function Inicio(props){
                     </div>
                 </div>
                 <div className={`inicio-boton-cv ${!seccion.inicio && `fuera`}`}>
-                    <Image className='inicio-boton-cv-image' src={ botonCV } alt='Descargar CV' loading='lazy'></Image>
+                    <a href={ cv } title='curriculum vitae' target='_blank' rel='noopener noreferrer'>
+                        <Image className='inicio-boton-cv-image' src={ botonCV } alt='Descargar CV' loading='lazy'></Image>
+                    </a>
                 </div>
+                
+
+                <div className={`contenedor-sobre-mi ${sobreMiAbierto&&`sobre-mi-abierto`}`}>
+                    <div className='sobre-mi-texto'>
+                        Acá va el texto de sobre mi, que no se bien que voy a poner. Una tipa rapaz, como te gusta a vos. Esa tipa vino a consolarteeeee.
+                    </div>
+                    <div className='sobre-mi-flecha' onClick={()=>sobreMi()}>
+                        <Image className='sobre-mi-flecha-image' src={flechaverde} alt='Flecha cerrar' loading='lazy' />
+                    </div>
+                </div>
+
             </div>
             
         </section>

@@ -63,47 +63,49 @@ export default function Home() {
     <main className='main'> {/* className={styles.main} */}
 
       <div className={`menu-global ${seccion.inicio && `fuera`} ${(!menuAbierto||seccion.inicio) && `fuera-responsive`}`}>  
-      {/* ${!menuAbierto && `fueraResponsive`} */}
-        <div className='menu-global-inicio' onClick={()=>cambiarSeccion('inicio')}>
-          Inicio
-        </div>
-        <div className={`menu-global-navegacion`}>
-          <div className={`menu-global-seccion menu-global-conocimientos ${seccion.conocimientos&&`palabra-elegida`}`}>
-              <div className={`seccion-elegida conocimientos-elegido ${seccion.conocimientos?`fondo-elegido`:``}`}></div>
-              <div className='seccion-palabra conocimientos-palabra' onClick={()=>cambiarSeccion('conocimientos')}>
-                Conocimientos
-              </div>
+        <div className='contenedor-menu-global-responsive'>
+          {/* ${!menuAbierto && `fueraResponsive`} */}
+          <div className='menu-global-inicio' onClick={()=>cambiarSeccion('inicio')}>
+            Inicio
           </div>
-
-          <div className={`menu-global-seccion menu-global-proyectos ${seccion.proyectos&&`palabra-elegida`}`}>
-            <div className={`seccion-elegida proyectos-elegido ${seccion.proyectos?`fondo-elegido`:``}`}></div>
-            <div className='seccion-palabra proyectos-palabra' onClick={()=>cambiarSeccion('proyectos')}>
-                Proyectos
+          <div className={`menu-global-navegacion`}>
+            <div className={`menu-global-seccion menu-global-conocimientos ${seccion.conocimientos&&`palabra-elegida`}`}>
+                <div className={`seccion-elegida conocimientos-elegido ${seccion.conocimientos?`fondo-elegido`:``}`}></div>
+                <div className='seccion-palabra conocimientos-palabra' onClick={()=>cambiarSeccion('conocimientos')}>
+                  Conocimientos
+                </div>
             </div>
-          </div>
 
-          <div className={`menu-global-seccion menu-global-contacto ${seccion.contacto&&`palabra-elegida`}`}>
-            <div className={`seccion-elegida contacto-elegido ${seccion.contacto?`fondo-elegido`:``}`}></div>
-            <div className='seccion-palabra contacto-palabra' onClick={()=>cambiarSeccion('contacto')}>
-                Contacto
+            <div className={`menu-global-seccion menu-global-proyectos ${seccion.proyectos&&`palabra-elegida`}`}>
+              <div className={`seccion-elegida proyectos-elegido ${seccion.proyectos?`fondo-elegido`:``}`}></div>
+              <div className='seccion-palabra proyectos-palabra' onClick={()=>cambiarSeccion('proyectos')}>
+                  Proyectos
+              </div>
+            </div>
+
+            <div className={`menu-global-seccion menu-global-contacto ${seccion.contacto&&`palabra-elegida`}`}>
+              <div className={`seccion-elegida contacto-elegido ${seccion.contacto?`fondo-elegido`:``}`}></div>
+              <div className='seccion-palabra contacto-palabra' onClick={()=>cambiarSeccion('contacto')}>
+                  Contacto
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <div className='secciones'>
-        <div className={`componente-inicio`} style={{display: seccion.inicio?flex:none}}>
-        {/* ${!seccion.inicio && `fuera`} */}
+        {/*  style={{display: seccion.inicio?flex:none}} */}
+        <div className={`componente-inicio ${!seccion.inicio&&`inicio-fuera`}`}>
           <Inicio onManejarClick={manejarClick} seccion={seccion}/>
         </div>
-        <div className={`componente-conocimientos`} style={{display: seccion.conocimientos?flex:none}}>
+        <div className={`componente-conocimientos ${!seccion.conocimientos&&`conocimientos-fuera`}`}>
         {/* display: seccion.conocimientos?flex:none */}
           <Conocimientos />
         </div>
-        <div className={`componente-proyectos`} style={{display: seccion.proyectos?flex:none}}>
+        <div className={`componente-proyectos ${!seccion.proyectos&&`proyectos-fuera`}`}>
           <Proyectos />
         </div>
-        <div className={`componente-contacto`} style={{display: seccion.contacto?flex:none}}>
+        <div className={`componente-contacto ${!seccion.contacto&&`contacto-fuera`}`}>
           <Contacto />
         </div>
       </div>
