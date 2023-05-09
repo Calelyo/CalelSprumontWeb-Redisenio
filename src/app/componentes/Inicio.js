@@ -3,7 +3,7 @@ import '../estilosComponentes/inicio.css'
 import Image from 'next/image'
 import foto from '../img/png/foto-inicio.png'
 import botonCV from '../img/png/boton-cv.png'
-import cv from '../pdfs/CalelSprumontCurriculumVitae2022.pdf'
+import cv from '../pdfs/CalelSprumontCurriculumVitae2023.pdf'
 import flechaverde from '../img/png/flechaverde.png'
 import { useEffect, useState } from 'react'
 
