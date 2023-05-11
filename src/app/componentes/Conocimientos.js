@@ -20,38 +20,40 @@ const conocimientosProgramacionImgRutas = conocimientosProgramacionImgKeys.map(k
     return { ruta: imgRuta, nombre: nombreClase }
 })
 
-export default function Conocimientos(){
 
+export default function Conocimientos(){
     const [seccionElegida, setSeccionElegida] = useState({ diseño: true, programacion: false })
 
     const [posicion, setPosicion] = useState(109);
     const numIconos = 3; // número total de iconos
     const anchoIcono = 100; // ancho de cada icono en píxeles
     
+    const esCliente = typeof window === 'object';
+    
     const [tamañosIconos, setTamañosIconos] = useState(()=>{
-        const movil = window.innerWidth <= 999;
-        console.log('valor de window.innerWidth:', window.innerWidth);
-        console.log('valor de screen.width:', screen.width);
-        console.log('movil:', movil);
+        const movil = esCliente && window.innerWidth <= 999;
+        
         const iconosMovil = {margenAncho: 8, paddingAncho: 26, margenAlto: 22, paddingAlto: 2};
         const iconosMonitor = {margenAncho: 32, paddingAncho: 22, margenAlto: 60, paddingAlto: 5};
         
         return movil ? iconosMovil : iconosMonitor
+        
     })
     const [anchoContenedor, setAnchoContenedor] = useState(()=>{
-        const movil = window.innerWidth <= 999;
-        const contenedorMovil = screen.width;
+        const movil = esCliente && window.innerWidth <= 999;
+        
+        const contenedorMovil = esCliente && screen.width;
         const contenedorMonitor = (anchoIcono + (tamañosIconos.margenAncho*3) + (tamañosIconos.paddingAncho*2)) * numIconos;
         
         return movil ? contenedorMovil : contenedorMonitor
+        
     });
-    
 
     const [iconosDiseño, setIconosDiseño] = useState(conocimientosDiseñoImgRutas);
     const [iconosProgramacion, setIconosProgramacion] = useState(conocimientosProgramacionImgRutas);
 
-    const [tamañoPantalla, setTamañoPantalla] = useState({ width: window.innerWidth, height: window.innerHeight });
-    
+    const [tamañoPantalla, setTamañoPantalla] = useState({ width: esCliente&&window.innerWidth, height: esCliente&&window.innerHeight });
+
     function anchoContenedorConocimientos(){
         if(tamañoPantalla.width <= 999){
             setAnchoContenedor(screen.width)
@@ -72,6 +74,7 @@ export default function Conocimientos(){
     useEffect(() => {
         const handleResize = () => {
             setTamañoPantalla({ width: window.innerWidth, height: window.innerHeight });
+            console.log('handleResize')
         };
         
         window.addEventListener('resize', handleResize);
@@ -80,18 +83,16 @@ export default function Conocimientos(){
           window.removeEventListener('resize', handleResize);
         };
       });
-        
-    useEffect(()=>{
+
+      useEffect(()=>{
         anchoContenedorConocimientos();
         tamañosIconosResponsive();
-        console.log('cambio tamaño')
+        console.log('tamañoPantalla')
     }, [tamañoPantalla])
 
     function cambiarSeleccion(sel){
         sel === 'd' && setSeccionElegida({ diseño: true, programacion: false })
         sel === 'p' && setSeccionElegida({ diseño: false, programacion: true })
-
-        console.log(window.screen.width)    
     }
 
     function moverDerecha(seccion){

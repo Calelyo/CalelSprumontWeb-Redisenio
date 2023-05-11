@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
-  webpack(config) {
+    output: 'export',
+    images: { unoptimized: true },
+    
+    webpack(config) {
     config.module.rules.push({
       test: /\.(pdf)$/,
       type: 'asset/resource',
@@ -14,6 +14,7 @@ const nextConfig = {
 
     return config;
   },
+    
 }
 
 module.exports = nextConfig
