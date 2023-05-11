@@ -137,9 +137,10 @@ export default function Conocimientos(){
             </div>
 
             <div className='conocimientos-mitad-derecha'>
-                <div className={`conocimientos-contenedor-info conocimientos-diseño-mitad-derecha ${!seccionElegida.diseño && `conocimientos-fuera`}`} style={{width: anchoContenedor}}>
+                                                                                                                        {/* style={{width: anchoContenedor}} */}
+                <div className={`conocimientos-contenedor-info conocimientos-diseño-mitad-derecha ${!seccionElegida.diseño && `conocimientos-fuera`}`}>
 
-                    <div className='conocimientos-texto-diseño'>
+                    <div className='conocimientos-texto conocimientos-texto-diseño'>
                     Estudiando Diseño Visual entendí que, ciertamente, el diseño es comunicación. Desde que entendí esto, 
                     me acompaña en mi vida en todo momento. Día a día, ya sea en las calles o en las pantallas, no puedo 
                     evitar pensar y analizar el por qué de esas decisiones, ya sea en un diseño visual, en una interfaz, 
@@ -147,10 +148,10 @@ export default function Conocimientos(){
                     en parte de mi identidad.
                     </div>
 
-                    <div className='contenedor-flechas'>
+                    <div className='contenedor-flechas contenedor-flechas-conocimientos'>
                         <div className='conocimientos-contenedor-iconos'>
-                                {iconosDiseño.map(({ ruta, nombre }, indice) => (                                                      // {transform: `translateX(-${posicion}px)`}
-                                    <div key={ nombre } className={`conocimientos-iconos-diseño conocimientos-iconos conocimientos-iconos-${nombre} ${indice===2&&`en-medio`}`} style={{margin: `${tamañosIconos.margenAlto}px ${tamañosIconos.margenAncho}px`, padding: `${tamañosIconos.paddingAlto}px ${tamañosIconos.paddingAncho}px`}}>
+                                {iconosDiseño.map(({ ruta, nombre }, indice) => (                                                      // {transform: `translateX(-${posicion}px)`}  style={{margin: `${tamañosIconos.margenAlto}px ${tamañosIconos.margenAncho}px`, padding: `${tamañosIconos.paddingAlto}px ${tamañosIconos.paddingAncho}px`}}
+                                    <div key={ nombre } className={`conocimientos-iconos-diseño conocimientos-iconos conocimientos-iconos-${nombre} ${indice===1&&`en-medio`}`}>
                                         <Image className='conocimientos-icono-image' key={ nombre } src={ ruta } alt={ nombre } loading='lazy'/>
                                     </div>
                                 ))}
@@ -167,10 +168,10 @@ export default function Conocimientos(){
                     </div>
 
                 </div>
+                                                                                                                                {/* style={{width: anchoContenedor}} */}
+                <div className={`conocimientos-contenedor-info conocimientos-programacion-mitad-derecha ${!seccionElegida.programacion && `conocimientos-fuera`}`}>
 
-                <div className={`conocimientos-contenedor-info conocimientos-programacion-mitad-derecha ${!seccionElegida.programacion && `conocimientos-fuera`}`} style={{width: anchoContenedor}}>
-
-                    <div className='conocimientos-texto-programacion'>
+                    <div className='conocimientos-texto conocimientos-texto-programacion'>
                         Siempre tuve interés en la programación, pero no fue hasta que hice el curso de Argentina Programa que 
                         no me dispuse a tomármelo en serio. Imaginaba que al entrar en este mundo mi curiosidad se iba a despertar, 
                         pero la intensidad con la que lo hizo me tomó por sorpresa. El interés no deja de crecer y la idea de sentarme 
@@ -178,10 +179,11 @@ export default function Conocimientos(){
                         tanto trabajo como pasatiempo hace que la etimología de la palabra trabajo pierda totalmente su sentido.
                     </div>
 
-                    <div className='contenedor-flechas'>
+                    <div className='contenedor-flechas contenedor-flechas-conocimientos'>
                         <div className='conocimientos-contenedor-iconos'>
                                 {iconosProgramacion.map(({ ruta, nombre }, indice) => (
-                                    <div key={ indice } className={`conocimientos-iconos-programacion conocimientos-iconos conocimientos-iconos-${nombre} ${indice===3&&`en-medio`}`} style={{transform: `translateX(${posicion}px)`, margin: `${tamañosIconos.margenAlto}px ${tamañosIconos.margenAncho}px`, padding: `${tamañosIconos.paddingAlto}px ${tamañosIconos.paddingAncho}px`}}>
+                                                                                                            // style={{transform: `translateX(${posicion}px)`, margin: `${tamañosIconos.margenAlto}px ${tamañosIconos.margenAncho}px`, padding: `${tamañosIconos.paddingAlto}px ${tamañosIconos.paddingAncho}px`}}
+                                    <div key={ indice } className={`conocimientos-iconos-programacion conocimientos-iconos conocimientos-iconos-${nombre} ${indice===1&&`en-medio`}`} >
                                         <Image className='conocimientos-icono-image' key={ nombre } src={ ruta } alt={ nombre } title={ nombre }loading='lazy' />
                                     </div>
                                 ))}
