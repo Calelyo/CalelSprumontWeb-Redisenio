@@ -200,7 +200,7 @@ body {
     background-color: white;
     position: absolute;
     right: 0;
-    top: 4rem;
+    top: 2.2rem;
     visibility: visible;
 
     transition: linear 0.2s;
@@ -218,9 +218,9 @@ body {
 
   .menu-hamburguesa{
     display: flex;
-    width: 2.5rem;
+    width: 1.8rem;
     height: auto;
-    margin: 1rem;
+    margin: 0.5rem;
     margin-right: 3rem;
   }
 
@@ -279,6 +279,12 @@ body {
   }
   .seccion-elegida{
     display: none;
+  }
+
+    
+  .componente-proyectos{
+    top: -210vh;
+    /* top: calc(-200vh + -6rem); */
   }
   
 }

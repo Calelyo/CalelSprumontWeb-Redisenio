@@ -140,12 +140,14 @@ export default function Conocimientos(){
                                                                                                                         {/* style={{width: anchoContenedor}} */}
                 <div className={`conocimientos-contenedor-info conocimientos-diseño-mitad-derecha ${!seccionElegida.diseño && `conocimientos-fuera`}`}>
 
-                    <div className='conocimientos-texto conocimientos-texto-diseño'>
-                    Estudiando Diseño Visual entendí que, ciertamente, el diseño es comunicación. Desde que entendí esto, 
-                    me acompaña en mi vida en todo momento. Día a día, ya sea en las calles o en las pantallas, no puedo 
-                    evitar pensar y analizar el por qué de esas decisiones, ya sea en un diseño visual, en una interfaz, 
-                    en un ecosistema o en un diseño de experiencia, cada decisión tiene una razón de ser y buscarla se ha convertido 
-                    en parte de mi identidad.
+                    <div className='contenedor-textos'>
+                        <div className='conocimientos-texto conocimientos-texto-diseño'>
+                        Estudiando Diseño Visual entendí que, ciertamente, el diseño es comunicación. Desde que entendí esto, 
+                        me acompaña en mi vida en todo momento. Día a día, ya sea en las calles o en las pantallas, no puedo 
+                        evitar pensar y analizar el por qué de esas decisiones, ya sea en un diseño visual, en una interfaz, 
+                        en un ecosistema o en un diseño de experiencia, cada decisión tiene una razón de ser y buscarla se ha convertido 
+                        en parte de mi identidad.
+                        </div>
                     </div>
 
                     <div className='contenedor-flechas contenedor-flechas-conocimientos'>
@@ -171,12 +173,14 @@ export default function Conocimientos(){
                                                                                                                                 {/* style={{width: anchoContenedor}} */}
                 <div className={`conocimientos-contenedor-info conocimientos-programacion-mitad-derecha ${!seccionElegida.programacion && `conocimientos-fuera`}`}>
 
-                    <div className='conocimientos-texto conocimientos-texto-programacion'>
-                        Siempre tuve interés en la programación, pero no fue hasta que hice el curso de Argentina Programa que 
-                        no me dispuse a tomármelo en serio. Imaginaba que al entrar en este mundo mi curiosidad se iba a despertar, 
-                        pero la intensidad con la que lo hizo me tomó por sorpresa. El interés no deja de crecer y la idea de sentarme 
-                        y programar es una motivación importante para mi crecimiento personal. Pensar en dedicarme a algo que puede ser 
-                        tanto trabajo como pasatiempo hace que la etimología de la palabra trabajo pierda totalmente su sentido.
+                    <div className='contenedor-textos'>
+                        <div className='conocimientos-texto conocimientos-texto-programacion'>
+                            Siempre tuve interés en la programación, pero no fue hasta que hice el curso de Argentina Programa que 
+                            no me dispuse a tomármelo en serio. Imaginaba que al entrar en este mundo mi curiosidad se iba a despertar, 
+                            pero la intensidad con la que lo hizo me tomó por sorpresa. El interés no deja de crecer y la idea de sentarme 
+                            y programar es una motivación importante para mi crecimiento personal. Pensar en dedicarme a algo que puede ser 
+                            tanto trabajo como pasatiempo hace que la etimología de la palabra trabajo pierda totalmente su sentido.
+                        </div>
                     </div>
 
                     <div className='contenedor-flechas contenedor-flechas-conocimientos'>

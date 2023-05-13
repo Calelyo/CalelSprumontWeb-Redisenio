@@ -221,9 +221,12 @@
     width: calc(((var(--ico-mar-hor) * 2) + (var(--ico-pad-hor)*  2) + 100px) * 3);
     left: 0;
     transition: linear 0.5s;
+
+    transition-delay: 0.3s;
 }
 .conocimientos-fuera .conocimientos-contenedor-info{
     left: 100vw;
+    transition: linear 0.5s;
 }
 
 .conocimientos-contenedor-iconos{
@@ -261,6 +264,11 @@
 
 @media screen and (max-width: 960px){
 
+    :root{
+        --ico-mar-hor: 2vw;
+        --ico-pad-hor: 2vw;
+    }
+
     .conocimientos-seccion{
         display: flex;
         flex-direction: column-reverse;
@@ -270,18 +278,18 @@
         height: 2.5rem;
         display: flex;
         position: absolute;
-        top: 4rem;
+        top: 2.2rem;
         left: 2rem;
         margin: 0 0 0 1rem;
         color: white;
-        font-size: 2rem;
+        font-size: 1.2rem;
 
         transition: linear 0.3s;
     }
     .conocimientos-titulo-responsive::before{
         content: '';
         position: absolute;
-        bottom: -2rem;
+        bottom: -0.5rem;
         right: 0;
         height: 5px;
         width: 200%;
@@ -297,8 +305,8 @@
         display: flex;
         flex-direction: column;
         width: 100vw;
-        height: 40vh;
-        bottom: 0px;
+        height: 50vh;
+        bottom: 3rem;
         left: 0;
     }
     .conocimientos-fuera .conocimientos-mitad-izquierda{
@@ -340,47 +348,80 @@
     .conocimientos-contenedor-info{
         display: flex;
         flex-direction: column-reverse;
+        width: calc(((var(--ico-mar-hor) * 2) + (var(--ico-pad-hor)*  2) + 100px) * 3)
+    }
+    
+    .conocimientos-contenedor-info{
+        left: 0vw;
+        opacity: 1;
+        transition: linear 0.3s;
+        transition-delay: 0.3s;
+    }
+    .conocimientos-fuera .conocimientos-contenedor-info{
+        left: 80vw;
+        opacity: 0;
+        transition: linear 0.3s;
+    }
+
+    .contenedor-textos{
+        display: flex;
+        width: 90vw;
+        margin: auto;
+        position: relative;
     }
 
     .conocimientos-texto-diseño{
-        position: relative;
-        top: 18vh;
-        left: 7vw;    
-        width: 85%;
+            /* position: relative; */
+            /* top: 18vh; */
+            bottom: -42vh;
+            left: 0vw;
+            width: 100%;
+            font-size: 0.8rem;
+            line-height: 1.1rem;
 
-        transition-delay: 0.5s;
+            /* transition: linear 0.2s;
+            transition-delay: 0.5s; */
     }
-    .conocimientos-fuera .conocimientos-texto-diseño{
-        top: 55vh;
-        left: 7vw;    
-
-    }
+    /* .conocimientos-fuera .conocimientos-texto-diseño{
+        left: 7vw;
+        transition: linear 0.2s;
+    } */
     .conocimientos-texto-programacion{
-        position: relative;
-        top: 18vh;
-        left: 7vw;    
-        width: 85%;
-        
-        transition-delay: 0.5s;
+            /* position: relative; */
+            /* top: 18vh; */
+            bottom: -42vh;
+            /* left: 7vw; */
+            width: 100%;
+            font-size: 0.8rem;
+            line-height: 1.1rem;
+
+            /* transition-delay: 0.5s; */
     }
-    .conocimientos-fuera .conocimientos-texto-programacion{
+    /* .conocimientos-fuera .conocimientos-texto-programacion{
         left: -70vw;
-    }
+    } */
     
     .conocimientos-contenedor-iconos{
-        margin-top: 35vh;
+        /* margin-top: 35vh; */
+        /* width: 100vw; */
+        /* width: calc(((var(--ico-mar-hor) * 2) + (var(--ico-pad-hor)*  2) + 100px) * 3) */
+    }
+    .contenedor-flechas{
+        display: flex;
+        justify-content: center;
+        top: 0.5rem;
     }
 
     .conocimientos-flecha{
-        top: 79%;
+        top: 40%;
         width: 3rem;
         height: auto;
     }
     .conocimientos-flecha-izquierda{
-        left: 1rem;
+        left: 0.5rem;
     }
     .conocimientos-flecha-derecha{
-        right: 1rem;
+        right: 0.5rem;
     }
     
     .conocimientos-fuera .contenedor-flechas{
