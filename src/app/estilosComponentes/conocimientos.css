@@ -429,4 +429,28 @@
         transition: linear 0.4s;
         transition-delay: 0s;
     }
+
+    @media (orientation: landscape){
+        .conocimientos-texto-diseño{
+            bottom: -30vh;
+            width: 62%;
+        }
+        .conocimientos-texto-programacion{
+            bottom: -30vh;
+            width: 62%;
+        }
+
+        .conocimientos-seleccion{
+            top: 5rem;
+        }
+
+        .conocimientos-contenedor-iconos{
+            position: relative;
+            top: 2rem;
+        }
+
+        .conocimientos-flecha{
+            top: 55%;
+        }
+    }
 }

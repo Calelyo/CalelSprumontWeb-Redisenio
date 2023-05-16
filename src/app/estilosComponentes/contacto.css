@@ -159,4 +159,15 @@
     .contacto-fuera .contacto-titulo-responsive{
         left: -30vh;
     }
+
+    @media (orientation: landscape){
+        .contacto-icono-image{
+            transform: scale(0.4);
+            margin: -2.2rem;
+        }
+
+        /* .contacto-contenedor-iconos{
+            top: 0vh;
+        } */
+    }
 }
